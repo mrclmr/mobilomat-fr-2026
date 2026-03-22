@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="{{ .Site.Language.Locale }}">
+  <head>
+    {{ with resources.Get "css/style.css" }} {{ $opts := dict "inlineImports"
+    true "minify" hugo.IsProduction }} {{ with . | css.TailwindCSS $opts }} {{
+    if hugo.IsDevelopment }}
+    <link rel="stylesheet" href="{{ .RelPermalink }}" />
+    {{ else }} {{ with . | fingerprint }}
+    <link
+      rel="stylesheet"
+      href="{{ .RelPermalink }}"
+      integrity="{{ .Data.Integrity }}"
+      crossorigin="anonymous"
+    />
+    {{ end }} {{ end }} {{ end }} {{ end }}
+    <!-- https://developer.mozilla.org/de/docs/Web/HTML/Reference/Attributes/rel/preload -->
+    <link
+      rel="preload"
+      href="/font/InterVariable.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/font/InterVariable-Italic.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- For "Pull-to-Refresh" in Safari background color. -->
+    <!-- 3 points darker than bg-stone-900: #141110, bg-stone-900: #1c1917, bg-stone-950: #0c0a09 -->
+    <meta
+      name="theme-color"
+      content="#141110"
+      media="(prefers-color-scheme: dark)"
+    />
+    <!-- 4 points darker than bg-stone-200: #dbd7d6, bg-stone-200: #e5e2e1, bg-stone-300: #d6d3d1 -->
+    <meta
+      name="theme-color"
+      content="#dbd7d6"
+      media="(prefers-color-scheme: light)"
+    />
+    <title>{{ .Title }}</title>
+  </head>
+  <body
+    class="min-h-screen bg-stone-100 text-stone-800 antialiased selection:bg-stone-500 selection:text-white dark:bg-stone-900 dark:text-stone-400 dark:selection:bg-stone-300"
+  >
+    {{ block "main" . }} {{ .Content }} {{ end }}
+  </body>
+</html>
