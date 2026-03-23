@@ -12,7 +12,7 @@
     </div>
     <div class="card mb-5">
       <p class="leading-relaxed text-stone-600 dark:text-stone-300">
-        {{ $meta.description }}
+        {{ $meta.description | safeHTML }}
       </p>
     </div>
     <button onclick="startQuiz()" class="btn-primary w-full text-lg">
