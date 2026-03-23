@@ -1,5 +1,5 @@
 {
   "permissions": {
-    "allow": ["Bash(hugo version:*)", "Bash(hugo:*)"]
+    "allow": ["Bash(hugo version:*)", "Bash(hugo:*)", "Bash(make format:*)"]
   }
 }

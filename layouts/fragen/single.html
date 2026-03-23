@@ -10,13 +10,15 @@ cond $isLast "/ergebnisse/" (printf "/fragen/%d/" (add $qi 2)) }}
       class="mb-2 flex justify-between text-sm text-stone-400 dark:text-stone-500"
     >
       <span>Frage {{ $num }} von {{ $total }}</span>
-      <span id="pct-label">{{ mul (div (sub $num 1) $total) 100 }}%</span>
+      <span
+        >{{ mul (div (float (sub $num 1)) $total) 100 | lang.FormatNumber 0
+        }}%</span
+      >
     </div>
     <div
       class="h-1.5 overflow-hidden rounded-full bg-stone-200 dark:bg-stone-700"
     >
       <div
-        id="progress-bar"
         class="h-full rounded-full bg-green-500 transition-all duration-500"
         style="width:{{ mul (div (float (sub $num 1)) $total) 100 }}%"
       ></div>
@@ -31,26 +33,30 @@ cond $isLast "/ergebnisse/" (printf "/fragen/%d/" (add $qi 2)) }}
   </div>
 
   <div class="mb-5 space-y-2.5">
-    <button data-pos="1" onclick="vote(1)" class="vote-btn vote-btn-pro">
+    <label class="vote-btn vote-btn-pro">
+      <input type="radio" name="vote" value="1" class="hidden" />
       <span class="w-7 shrink-0 text-xl">✓</span><span>Stimme zu</span>
-    </button>
-    <button data-pos="0" onclick="vote(0)" class="vote-btn vote-btn-neutral">
+    </label>
+    <label class="vote-btn vote-btn-neutral">
+      <input type="radio" name="vote" value="0" class="hidden" />
       <span class="w-7 shrink-0 text-xl">○</span
       ><span>Egal&nbsp;/ Weiß nicht</span>
-    </button>
-    <button data-pos="-1" onclick="vote(-1)" class="vote-btn vote-btn-contra">
+    </label>
+    <label class="vote-btn vote-btn-contra">
+      <input type="radio" name="vote" value="-1" class="hidden" />
       <span class="w-7 shrink-0 text-xl">✗</span><span>Stimme nicht zu</span>
-    </button>
-    <button data-pos="99" onclick="vote(99)" class="vote-btn vote-btn-skip">
+    </label>
+    <label class="vote-btn vote-btn-skip">
+      <input type="radio" name="vote" value="99" class="hidden" />
       <span class="w-7 shrink-0 text-lg">→</span><span>Überspringen</span>
-    </button>
+    </label>
   </div>
 
   <div class="flex gap-3">
     <a href="{{ $prevURL }}" class="nav-btn flex-1 text-center">← Zurück</a>
-    <button id="next-btn" onclick="goNext()" class="nav-btn-primary flex-1">
+    <a href="{{ $nextURL }}" class="nav-btn-primary flex-1 text-center">
       {{ if $isLast }}Ergebnisse →{{ else }}Weiter →{{ end }}
-    </button>
+    </a>
   </div>
 
   <p class="mt-6 text-center text-xs text-stone-400 dark:text-stone-600">
@@ -65,49 +71,26 @@ cond $isLast "/ergebnisse/" (printf "/fragen/%d/" (add $qi 2)) }}
 </div>
 
 <script>
-  const STORAGE_KEY = 'mobilomat_answers';
+  const KEY = "mobilomat_answers";
   const QI = {{ $qi }};
-  const NEXT_URL = '{{ $nextURL }}';
 
-  const ACTIVE_CLASSES = {
-    1:  ['vote-btn-pro',     'vote-btn-pro-active'],
-    0:  ['vote-btn-neutral', 'vote-btn-neutral-active'],
-    '-1': ['vote-btn-contra', 'vote-btn-contra-active'],
-    99: ['vote-btn-skip',    'vote-btn-skip-active'],
-  };
-
-  function loadAnswers() {
-    try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; }
-    catch { return []; }
+  function answers() {
+    try { return JSON.parse(localStorage.getItem(KEY)) || []; } catch { return []; }
   }
 
-  function vote(pos) {
-    const answers = loadAnswers();
-    answers[QI] = pos;
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(answers));
-    updateButtons(pos);
+  // Restore saved answer
+  const saved = answers()[QI];
+  if (saved != null) {
+    const el = document.querySelector(`[name="vote"][value="${saved}"]`);
+    if (el) el.checked = true;
   }
 
-  function goNext() {
-    window.location.href = NEXT_URL;
-  }
-
-  function updateButtons(ans) {
-    document.querySelectorAll('[data-pos]').forEach(btn => {
-      const pos = Number(btn.dataset.pos);
-      const [inactive, active] = ACTIVE_CLASSES[pos] || ACTIVE_CLASSES[99];
-      if (ans === pos) {
-        btn.classList.remove(inactive);
-        btn.classList.add(active);
-      } else {
-        btn.classList.add(inactive);
-        btn.classList.remove(active);
-      }
-    });
-  }
-
-  // Restore saved answer on page load
-  const saved = loadAnswers()[QI];
-  if (saved !== undefined) updateButtons(saved);
+  // Save on change
+  document.addEventListener("change", (e) => {
+    if (e.target.name !== "vote") return;
+    const a = answers();
+    a[QI] = Number(e.target.value);
+    localStorage.setItem(KEY, JSON.stringify(a));
+  });
 </script>
 {{ end }}
