@@ -1,0 +1,225 @@
+{{ define "main" }}
+<div class="mx-auto flex min-h-screen max-w-lg flex-col p-4 sm:p-6">
+  <div class="mb-5">
+    <h1 class="mb-1">Ergebnisse</h1>
+    <p class="text-sm text-stone-500 dark:text-stone-400">
+      Übereinstimmung mit Ihren Antworten
+    </p>
+  </div>
+
+  <div class="mb-5 flex gap-1 rounded-xl bg-stone-200 p-1 dark:bg-stone-800">
+    <button onclick="setTab('summary')" id="tab-summary" class="tab tab-active">
+      Überblick
+    </button>
+    <button onclick="setTab('theses')" id="tab-theses" class="tab tab-inactive">
+      Fragen
+    </button>
+    <button
+      onclick="setTab('parties')"
+      id="tab-parties"
+      class="tab tab-inactive"
+    >
+      Kandidierende
+    </button>
+  </div>
+
+  <div id="content" class="flex-grow"></div>
+
+  <div class="mt-6 space-y-3">
+    <button onclick="restart()" class="btn-primary w-full">
+      ↺ Neu starten
+    </button>
+    <p class="text-center text-xs text-stone-400 dark:text-stone-600">
+      <a
+        href="{{ site.Data.mobilomat.meta.imprintLink }}"
+        target="_blank"
+        rel="noopener"
+        class="hover:underline"
+        >Impressum</a
+      >
+    </p>
+  </div>
+</div>
+
+<script>
+  const STORAGE_KEY = 'mobilomat_answers';
+  const QUESTIONS = {{ site.Data.mobilomat.questions | jsonify | safeJS }};
+  const CANDIDATES = {{ site.Data.mobilomat.candidates | jsonify | safeJS }};
+
+  let currentTab = 'summary';
+
+  function loadAnswers() {
+    try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; }
+    catch { return []; }
+  }
+
+  function getStance(candidateName, qi) {
+    return QUESTIONS[qi].stances.find(s => s.candidate === candidateName);
+  }
+
+  function calcResults() {
+    const answers = loadAnswers();
+    return CANDIDATES.map((c, idx) => {
+      let score = 0, maxScore = 0;
+      for (let q = 0; q < QUESTIONS.length; q++) {
+        const ans = answers[q];
+        if (ans === null || ans === undefined || ans === 99) continue;
+        maxScore++;
+        const pos = getStance(c.nameShort, q).position;
+        if (pos === ans) score++;
+        else if (pos === 0 || ans === 0) score += 0.5;
+      }
+      const pct = maxScore > 0 ? Math.round((score / maxScore) * 100) : 0;
+      return { idx, c, score, maxScore, pct };
+    }).sort((a, b) => b.pct - a.pct);
+  }
+
+  function posIcon(pos) {
+    return { 1: '✓', 0: '○', '-1': '✗' }[pos] ?? '→';
+  }
+
+  function posLabel(pos) {
+    return ({ 1: 'Stimme zu', 0: 'Egal / Weiß nicht', '-1': 'Stimme nicht zu', 99: 'Übersprungen' })[pos] ?? 'Keine Antwort';
+  }
+
+  function barColor(pct) {
+    return pct >= 67 ? 'bar-green' : pct >= 34 ? 'bar-amber' : 'bar-red';
+  }
+
+  function pctColor(pct) {
+    return pct >= 67 ? 'text-green-600 dark:text-green-400' : pct >= 34 ? 'text-amber-600 dark:text-amber-400' : 'text-red-600 dark:text-red-400';
+  }
+
+  function posCol(pos) {
+    return pos === 1 ? 'text-green-600 dark:text-green-400' : pos === -1 ? 'text-red-600 dark:text-red-400' : 'text-amber-600 dark:text-amber-400';
+  }
+
+  function renderSummary(results) {
+    return results.map((r, rank) => `
+      <div class="card mb-3 ${rank === 0 ? 'ring-2 ring-green-500 dark:ring-green-400' : ''}">
+        <div class="mb-3 flex items-center gap-4">
+          <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-sm font-bold
+                      ${rank === 0 ? 'bg-green-500 text-white' : 'bg-stone-100 text-stone-600 dark:bg-stone-700 dark:text-stone-300'}">
+            ${rank + 1}
+          </div>
+          <div class="min-w-0 flex-grow">
+            <div class="truncate font-semibold text-stone-900 dark:text-stone-50">${r.c.nameShort}</div>
+            ${r.c.description ? `<div class="text-xs text-stone-400 dark:text-stone-500">${r.c.description}</div>` : ''}
+          </div>
+          <div class="shrink-0 text-2xl font-bold ${pctColor(r.pct)}">${r.pct}%</div>
+        </div>
+        <div class="h-2 overflow-hidden rounded-full bg-stone-100 dark:bg-stone-700">
+          <div class="h-full rounded-full transition-all duration-700 ${barColor(r.pct)}" style="width:${r.pct}%"></div>
+        </div>
+        ${r.c.url ? `<div class="mt-2 text-xs"><a href="${r.c.url}" target="_blank" rel="noopener" class="text-stone-400 hover:underline">Mehr erfahren →</a></div>` : ''}
+      </div>`).join('');
+  }
+
+  function renderTheses(results) {
+    const answers = loadAnswers();
+    const sorted = [...results].sort((a, b) => a.idx - b.idx);
+    return QUESTIONS.map((q, qi) => {
+      const ans = answers[qi];
+      const rows = sorted.map(r => {
+        const stance = getStance(r.c.nameShort, qi);
+        const pos = stance.position;
+        return `
+          <div class="border-b border-stone-100 py-2 last:border-0 dark:border-stone-700">
+            <div class="flex items-start gap-2">
+              <span class="mt-0.5 w-5 shrink-0 font-bold ${posCol(pos)}">${posIcon(pos)}</span>
+              <div class="min-w-0">
+                <span class="text-sm font-medium text-stone-700 dark:text-stone-300">${r.c.nameShort}:</span>
+                <span class="ml-1 text-sm text-stone-500 dark:text-stone-400">${stance.opinion}</span>
+              </div>
+            </div>
+          </div>`;
+      }).join('');
+      return `
+        <details class="card mb-3">
+          <summary class="flex cursor-pointer list-none items-start gap-3">
+            <span class="mt-0.5 shrink-0 rounded bg-stone-100 px-2 py-1 text-xs font-semibold text-stone-500 dark:bg-stone-700 dark:text-stone-400">${qi + 1}</span>
+            <div class="min-w-0 flex-grow">
+              <div class="font-medium text-stone-800 dark:text-stone-200">${q.short}</div>
+              <div class="mt-0.5 text-xs text-stone-400 dark:text-stone-500">
+                Ihre Antwort: <span class="font-medium">${ans === null || ans === undefined ? 'Keine Antwort' : posLabel(ans)}</span>
+              </div>
+            </div>
+            <span class="mt-1 shrink-0 text-stone-400 dark:text-stone-500">›</span>
+          </summary>
+          <div class="mt-3 border-t border-stone-100 pt-3 dark:border-stone-700">
+            <p class="mb-3 text-sm leading-relaxed text-stone-500 dark:text-stone-400">${q.long}</p>
+            ${rows}
+          </div>
+        </details>`;
+    }).join('');
+  }
+
+  function renderParties(results) {
+    const answers = loadAnswers();
+    const sorted = [...results].sort((a, b) => a.idx - b.idx);
+    return sorted.map(r => {
+      const res = results.find(x => x.idx === r.idx);
+      const rows = QUESTIONS.map((q, qi) => {
+        const stance = getStance(r.c.nameShort, qi);
+        const pos = stance.position;
+        const ans = answers[qi];
+        let matchIcon = '', matchCol = '';
+        if (ans !== null && ans !== undefined && ans !== 99) {
+          if (pos === ans)          { matchIcon = '✓'; matchCol = 'text-green-500'; }
+          else if (pos === 0 || ans === 0) { matchIcon = '~'; matchCol = 'text-amber-500'; }
+          else                      { matchIcon = '✗'; matchCol = 'text-red-400'; }
+        }
+        return `
+          <div class="border-b border-stone-100 py-2.5 last:border-0 dark:border-stone-700">
+            <div class="flex items-start gap-2">
+              <span class="mt-0.5 w-4 shrink-0 text-sm font-bold ${matchCol}">${matchIcon}</span>
+              <div class="min-w-0 flex-grow">
+                <div class="mb-0.5 flex items-center gap-1.5">
+                  <span class="text-xs text-stone-400">${qi + 1}.</span>
+                  <span class="text-sm font-medium text-stone-700 dark:text-stone-200">${q.short}</span>
+                  <span class="ml-auto text-sm font-bold ${posCol(pos)}">${posIcon(pos)}</span>
+                </div>
+                <p class="text-xs leading-relaxed text-stone-400 dark:text-stone-500">${stance.opinion}</p>
+              </div>
+            </div>
+          </div>`;
+      }).join('');
+      return `
+        <details class="card mb-3">
+          <summary class="flex cursor-pointer list-none items-center gap-3">
+            <div class="min-w-0 flex-grow">
+              <div class="font-semibold text-stone-900 dark:text-stone-50">${r.c.nameShort}</div>
+              ${r.c.description ? `<div class="text-xs text-stone-400">${r.c.description}</div>` : ''}
+            </div>
+            <div class="shrink-0 text-lg font-bold ${pctColor(res.pct)}">${res.pct}%</div>
+            <span class="ml-1 shrink-0 text-stone-400">›</span>
+          </summary>
+          <div class="mt-3 border-t border-stone-100 pt-3 dark:border-stone-700">${rows}</div>
+        </details>`;
+    }).join('');
+  }
+
+  function setTab(tab) {
+    currentTab = tab;
+    ['summary', 'theses', 'parties'].forEach(t => {
+      document.getElementById('tab-' + t).className = 'tab ' + (t === tab ? 'tab-active' : 'tab-inactive');
+    });
+    render();
+  }
+
+  function render() {
+    const results = calcResults();
+    const content = currentTab === 'summary' ? renderSummary(results)
+                  : currentTab === 'theses'  ? renderTheses(results)
+                  : renderParties(results);
+    document.getElementById('content').innerHTML = content;
+  }
+
+  function restart() {
+    localStorage.removeItem(STORAGE_KEY);
+    window.location.href = '/';
+  }
+
+  render();
+</script>
+{{ end }}

@@ -15,7 +15,9 @@ const state = {
 // ─── Score Calculation ────────────────────────────────────────────────────────
 
 function getStance(candidateNameShort, qi) {
-  return DATA.questions[qi].stances.find((s) => s.candidate === candidateNameShort);
+  return DATA.questions[qi].stances.find(
+    (s) => s.candidate === candidateNameShort,
+  );
 }
 
 function calcResults() {

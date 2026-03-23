@@ -1,4 +1,4 @@
 ---
 title: "Mobilomat Freiburg"
-layout: mobilomat
+layout: welcome
 ---

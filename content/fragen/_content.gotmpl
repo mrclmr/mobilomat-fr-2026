@@ -1,0 +1,8 @@
+{{- range $i, $q := site.Data.mobilomat.questions }}
+{{- $page := dict
+  "path" (printf "%d" (add $i 1))
+  "title" $q.short
+  "params" (dict "questionIndex" $i)
+}}
+{{- $.AddPage $page }}
+{{- end }}
