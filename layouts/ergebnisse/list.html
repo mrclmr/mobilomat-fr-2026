@@ -190,6 +190,12 @@ $candidates := site.Data.mobilomat.candidates }} {{ $icons := dict "1" "✓" "0"
   </div>
 
   <div class="mt-6 space-y-3">
+    <button
+      onclick="share()"
+      class="w-full rounded-xl border border-stone-200 px-5 py-3.5 font-semibold text-stone-700 transition-colors hover:bg-stone-50 dark:border-stone-700 dark:text-stone-300 dark:hover:bg-stone-800"
+    >
+      ↗ Ergebnis teilen
+    </button>
     <button onclick="restart()" class="btn-primary w-full">
       ↺ Neu starten
     </button>
@@ -326,6 +332,24 @@ $candidates := site.Data.mobilomat.candidates }} {{ $icons := dict "1" "✓" "0"
   function restart() {
     localStorage.removeItem(STORAGE_KEY);
     window.location.href = "/";
+  }
+
+  async function share() {
+    const url = {{ site.BaseURL | jsonify | safeJS }};
+    const title = "Meine FR Mobil-O-Mat Ergebnisse";
+    const ranking = results
+      .map((r, i) => `${i + 1}. ${r.name}: ${r.pct}%`)
+      .join("\n");
+    const text = `${title}\n\n${ranking}\n\n${url}`;
+    if (navigator.share) {
+      await navigator.share({ title, text });
+    } else {
+      await navigator.clipboard.writeText(text);
+      const btn = document.querySelector("[onclick='share()']");
+      const orig = btn.textContent;
+      btn.textContent = "✓ Kopiert!";
+      setTimeout(() => (btn.textContent = orig), 2000);
+    }
   }
 
   const results = calcResults();
