@@ -5,10 +5,10 @@
 
 @layer base {
   h1 {
-    @apply text-2xl font-medium text-stone-800 sm:text-3xl dark:text-stone-200;
+    @apply text-2xl font-semibold text-stone-800 sm:text-3xl dark:text-stone-100;
   }
   h2 {
-    @apply text-xl font-medium text-stone-700 sm:text-2xl dark:text-stone-300;
+    @apply text-xl font-semibold text-stone-700 sm:text-2xl dark:text-stone-200;
   }
 }
 
@@ -18,43 +18,56 @@
   }
 
   .btn-primary {
-    @apply rounded-xl bg-green-600 px-5 py-3.5 font-semibold text-white transition-colors hover:bg-green-700 active:bg-green-800;
+    @apply rounded-xl bg-green-700 px-5 py-3.5 font-semibold text-white transition-colors hover:bg-green-800 active:bg-green-900;
   }
 
   .nav-btn {
-    @apply rounded-xl border border-stone-200 px-4 py-3.5 font-medium text-stone-600 transition-colors hover:bg-stone-50 disabled:cursor-not-allowed disabled:opacity-30 dark:border-stone-700 dark:text-stone-400 dark:hover:bg-stone-800/50;
+    @apply rounded-xl border border-stone-200 px-4 py-3.5 font-medium text-stone-500 transition-colors hover:border-stone-300 hover:bg-stone-50 disabled:cursor-not-allowed disabled:opacity-30 dark:border-stone-700 dark:text-stone-400 dark:hover:bg-stone-800/50;
   }
 
   .nav-btn-primary {
-    @apply rounded-xl bg-stone-900 px-4 py-3.5 font-medium text-white transition-colors hover:bg-stone-700 dark:bg-stone-100 dark:text-stone-900 dark:hover:bg-stone-300;
+    @apply rounded-xl bg-stone-800 px-4 py-3.5 font-medium text-white transition-colors hover:bg-stone-700 dark:bg-stone-200 dark:text-stone-900 dark:hover:bg-stone-300;
   }
 
+  /* Unselected: neutral/muted so selection stands out clearly */
   .vote-btn {
-    @apply flex min-h-14 w-full items-center gap-3 rounded-xl border-2 px-5 py-4 text-left font-medium transition-all;
+    @apply flex min-h-14 w-full cursor-pointer items-center gap-3 rounded-xl border-2 px-5 py-4 text-left font-medium transition-all;
   }
   .vote-btn-pro {
-    @apply border-green-200 bg-green-50 text-green-800 hover:border-green-300 hover:bg-green-100 dark:border-green-900 dark:bg-green-950/40 dark:text-green-300;
+    @apply border-green-200 bg-green-50 text-stone-400
+           hover:border-green-300
+           dark:border-green-900 dark:bg-green-950/30 dark:text-stone-500;
   }
   .vote-btn-pro:has(:checked) {
-    @apply border-green-600 bg-green-600 text-white;
+    @apply border-green-500 bg-green-100 text-green-900
+           dark:border-green-600 dark:bg-green-950/70 dark:text-green-200;
   }
   .vote-btn-neutral {
-    @apply border-amber-200 bg-amber-50 text-amber-800 hover:border-amber-300 hover:bg-amber-100 dark:border-amber-900 dark:bg-amber-950/40 dark:text-amber-300;
+    @apply border-amber-200 bg-amber-50 text-stone-400
+           hover:border-amber-300
+           dark:border-amber-900 dark:bg-amber-950/30 dark:text-stone-500;
   }
   .vote-btn-neutral:has(:checked) {
-    @apply border-amber-500 bg-amber-500 text-white;
+    @apply border-amber-400 bg-amber-100 text-amber-900
+           dark:border-amber-600 dark:bg-amber-950/70 dark:text-amber-200;
   }
   .vote-btn-contra {
-    @apply border-red-200 bg-red-50 text-red-800 hover:border-red-300 hover:bg-red-100 dark:border-red-900 dark:bg-red-950/40 dark:text-red-300;
+    @apply border-red-200 bg-red-50 text-stone-400
+           hover:border-red-300
+           dark:border-red-900 dark:bg-red-950/30 dark:text-stone-500;
   }
   .vote-btn-contra:has(:checked) {
-    @apply border-red-600 bg-red-600 text-white;
+    @apply border-red-500 bg-red-100 text-red-900
+           dark:border-red-600 dark:bg-red-950/70 dark:text-red-200;
   }
   .vote-btn-skip {
-    @apply border-stone-200 bg-stone-50 text-stone-500 hover:border-stone-300 hover:bg-stone-100 dark:border-stone-700 dark:bg-stone-800 dark:text-stone-400;
+    @apply border-stone-200 bg-stone-100 text-stone-400
+           hover:border-stone-300
+           dark:border-stone-700 dark:bg-stone-800 dark:text-stone-500;
   }
   .vote-btn-skip:has(:checked) {
-    @apply border-stone-500 bg-stone-500 text-white;
+    @apply border-stone-400 bg-stone-200 text-stone-800
+           dark:border-stone-500 dark:bg-stone-700 dark:text-stone-200;
   }
 
   .tab {
@@ -64,11 +77,11 @@
     @apply bg-white text-stone-900 shadow-sm dark:bg-stone-700 dark:text-stone-50;
   }
   .tab-inactive {
-    @apply text-stone-500 hover:text-stone-700 dark:text-stone-400 dark:hover:text-stone-200;
+    @apply text-stone-400 hover:text-stone-600 dark:text-stone-500 dark:hover:text-stone-300;
   }
 
   .bar-green {
-    @apply bg-green-500;
+    @apply bg-green-600;
   }
   .bar-amber {
     @apply bg-amber-500;
@@ -78,33 +91,33 @@
   }
 
   .pct-green {
-    @apply text-green-600 dark:text-green-400;
+    @apply text-green-700 dark:text-green-500;
   }
   .pct-amber {
-    @apply text-amber-600 dark:text-amber-400;
+    @apply text-amber-700 dark:text-amber-500;
   }
   .pct-red {
-    @apply text-red-600 dark:text-red-400;
+    @apply text-red-700 dark:text-red-500;
   }
 
   .card-top {
-    @apply ring-2 ring-green-500 dark:ring-green-400;
+    @apply ring-2 ring-green-600 dark:ring-green-700;
   }
 
   .rank-first {
-    @apply bg-green-500 text-white;
+    @apply bg-green-700 text-white;
   }
   .rank-other {
-    @apply bg-stone-100 text-stone-600 dark:bg-stone-700 dark:text-stone-300;
+    @apply bg-stone-100 text-stone-500 dark:bg-stone-700 dark:text-stone-400;
   }
 
   .match-agree {
-    @apply text-green-500;
+    @apply text-green-700 dark:text-green-500;
   }
   .match-partial {
-    @apply text-amber-500;
+    @apply text-amber-600 dark:text-amber-500;
   }
   .match-disagree {
-    @apply text-red-400;
+    @apply text-red-600 dark:text-red-500;
   }
 }
