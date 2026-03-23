@@ -1,6 +1,5 @@
 @import "tailwindcss";
 @import "components/font/inter.css";
-@source "assets/js/mobilomat.js";
 @source "layouts";
 
 @layer base {
