@@ -90,11 +90,11 @@ $candidates := site.Data.mobilomat.candidates }} {{ $icons := dict "1" "✓" "0"
           <div class="font-medium text-stone-800 dark:text-stone-200">
             {{ $q.short }}
           </div>
-          <div class="mt-0.5 text-xs text-stone-400 dark:text-stone-500">
+          <div
+            class="mt-1 flex items-center gap-1.5 text-xs text-stone-400 dark:text-stone-500"
+          >
             Ihre Antwort:
-            <span class="user-answer font-medium" data-qi="{{ $qi }}"
-              >Keine Antwort</span
-            >
+            <span class="user-answer vote-badge" data-qi="{{ $qi }}">–</span>
           </div>
         </div>
         <span class="mt-1 shrink-0 text-stone-400 dark:text-stone-500">›</span>
@@ -179,6 +179,14 @@ $candidates := site.Data.mobilomat.candidates }} {{ $icons := dict "1" "✓" "0"
                 >
                   {{ $stance.opinion }}
                 </p>
+                <div
+                  class="mt-1 flex items-center gap-1.5 text-xs text-stone-400 dark:text-stone-500"
+                >
+                  Ihre Antwort:
+                  <span class="user-answer-badge vote-badge" data-qi="{{ $qi }}"
+                    >–</span
+                  >
+                </div>
               </div>
             </div>
           </div>
@@ -220,6 +228,30 @@ $candidates := site.Data.mobilomat.candidates }} {{ $icons := dict "1" "✓" "0"
     "-1": "Stimme nicht zu",
     99: "Übersprungen",
   };
+
+  const ANS_ICONS = { 1: "✓", 0: "○", "-1": "✗", 99: "→" };
+  const ANS_BADGE_CLASS = {
+    1: "vote-badge-pro",
+    0: "vote-badge-neutral",
+    "-1": "vote-badge-contra",
+    99: "vote-badge-skip",
+  };
+  const BADGE_VARIANTS = [
+    "vote-badge-pro",
+    "vote-badge-neutral",
+    "vote-badge-contra",
+    "vote-badge-skip",
+  ];
+
+  function setBadge(el, ans) {
+    el.classList.remove(...BADGE_VARIANTS);
+    if (ans == null) {
+      el.textContent = "–";
+    } else {
+      el.textContent = (ANS_ICONS[ans] ?? "") + " " + (POS_LABELS[ans] ?? "–");
+      el.classList.add(ANS_BADGE_CLASS[ans] ?? "");
+    }
+  }
 
   function loadAnswers() {
     try {
@@ -283,9 +315,7 @@ $candidates := site.Data.mobilomat.candidates }} {{ $icons := dict "1" "✓" "0"
   function updateTheses() {
     const answers = loadAnswers();
     document.querySelectorAll(".user-answer[data-qi]").forEach((el) => {
-      const ans = answers[Number(el.dataset.qi)];
-      el.textContent =
-        ans == null ? "Keine Antwort" : (POS_LABELS[ans] ?? "Keine Antwort");
+      setBadge(el, answers[Number(el.dataset.qi)]);
     });
   }
 
@@ -301,17 +331,20 @@ $candidates := site.Data.mobilomat.candidates }} {{ $icons := dict "1" "✓" "0"
         const ans = answers[Number(row.dataset.qi)];
         const pos = Number(row.dataset.pos);
         const icon = row.querySelector(".match-icon");
-        if (ans == null || ans === 99) return;
-        if (pos === ans) {
-          icon.textContent = "✓";
-          icon.classList.add("match-agree");
-        } else if (pos === 0 || ans === 0) {
-          icon.textContent = "~";
-          icon.classList.add("match-partial");
-        } else {
-          icon.textContent = "✗";
-          icon.classList.add("match-disagree");
+        if (ans != null && ans !== 99) {
+          if (pos === ans) {
+            icon.textContent = "✓";
+            icon.classList.add("match-agree");
+          } else if (pos === 0 || ans === 0) {
+            icon.textContent = "○";
+            icon.classList.add("match-partial");
+          } else {
+            icon.textContent = "✗";
+            icon.classList.add("match-disagree");
+          }
         }
+        const badge = row.querySelector(".user-answer-badge");
+        if (badge) setBadge(badge, ans);
       });
       container.appendChild(card);
     });
