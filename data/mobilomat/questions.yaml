@@ -1,30 +1,270 @@
 - short: "Investitionen"
   long: "Die jährlichen städtischen Investitionen für den Fuß- und Radverkehr sollen um den Faktor 2-3 erhöht werden, so dass sie dann ungefähr dem Niveau von Kopenhagen oder Tübingen (2025) entsprechen."
+  stances:
+    - candidate: "Clara Bergmann"
+      position: 0
+      opinion: "oft dürfen schön müssen hässlich also Auto der schön früher schlecht gehen dunkel aber manchmal Mensch morgen Straße Nacht Jahr"
+    - candidate: "Julian Voss"
+      position: 1
+      opinion: "hässlich der plötzlich Leben Haus aber nämlich manchmal kommen wissen die denken hören stark sollen machen schließlich zwar morgen sein"
+    - candidate: "Elena Schwarz"
+      position: -1
+      opinion: "also später Land machen langsam hässlich dürfen deshalb sondern hören oder gehen jedoch schließlich Zeit sondern schlecht aber früher zwar"
+    - candidate: "Finn Nowak"
+      position: 1
+      opinion: "Land hören plötzlich dunkel die klein sowie außerdem ferner schön plötzlich Baum also Auto stark neu das Leben hässlich manchmal"
+    - candidate: "Marlene Ziegler"
+      position: 1
+      opinion: "müssen Welt Haus machen die schnell klein groß Schule schwach"
 - short: "Kinder im Verkehr"
   long: "Die Sicherheit von Kinder, die im Straßenverkehr zu Fuß oder mit dem Rad unterwegs sind hat höchste Priorität, auch wenn dadurch der Autoverkehr Nachteile hat."
+  stances:
+    - candidate: "Clara Bergmann"
+      position: -1
+      opinion: "deshalb aber schön jedoch später Haus Leben später endlich Land jetzt denken Mensch zwar gut früher übrigens deshalb Land dunkel"
+    - candidate: "Julian Voss"
+      position: 1
+      opinion: "dann morgen plötzlich Baum selten müssen selten wollen schließlich plötzlich übrigens heute Tag Welt übrigens schlecht gut kalt übrigens morgen"
+    - candidate: "Elena Schwarz"
+      position: -1
+      opinion: "schlecht Land Straße ferner deshalb neu Auto jetzt dürfen sowie hören jung sowie neu kommen wollen groß weil sollen Arbeit"
+    - candidate: "Finn Nowak"
+      position: 1
+      opinion: "Arbeit Zeit Frau alt manchmal Mensch deshalb schwach Nacht sehen Stadt niemals ferner daher endlich müssen hören Kind die weil"
+    - candidate: "Marlene Ziegler"
+      position: -1
+      opinion: "Welt Baum sollen dabei der dennoch dabei kalt dabei müssen"
 - short: "Dreisamboulevard"
   long: "Der Dreisamboulevard ist auch ohne Stadttunnel möglich. Freiburg soll sich beim Bund dafür einsetzen, dass die hunderte Millionen Euro Tunnel-Budget direkt in die regionale Verkehrswende eingesetzt werden."
+  stances:
+    - candidate: "Clara Bergmann"
+      position: 1
+      opinion: "wollen plötzlich das weil nämlich zudem deshalb Frau Baum hell immer sein Straße oft schwach zwar jung Leben stark alt"
+    - candidate: "Julian Voss"
+      position: 1
+      opinion: "Arbeit stark also und deshalb groß gut dann die werden kalt Stadt hässlich dürfen Straße deshalb Auto kalt machen müssen"
+    - candidate: "Elena Schwarz"
+      position: -1
+      opinion: "manchmal oder ferner Nacht schließlich müssen ferner Stadt schnell plötzlich"
+    - candidate: "Finn Nowak"
+      position: 1
+      opinion: "langsam jung denken werden Mensch dürfen Straße jedoch trotzdem Mensch dennoch Tag neu Stadt wissen Auto allerdings heute Arbeit hören"
+    - candidate: "Marlene Ziegler"
+      position: 1
+      opinion: "Arbeit wollen Leben Tag Auto außerdem der nämlich kalt schwach"
 - short: "Fahrradparken"
   long: "Freiburg soll ein flächendeckendes Angebot an wettergeschützten Fahrradstellflächen schaffen. Dazu sollen auch bestehende Autoparkhäuser ganz oder teilweise umgestaltet werden."
+  stances:
+    - candidate: "Clara Bergmann"
+      position: 0
+      opinion: "sowie nämlich Tag haben gehen hässlich wollen Auto der schlecht schön das also hören und haben schließlich Auto bald Tag"
+    - candidate: "Julian Voss"
+      position: 1
+      opinion: "zudem groß sowie jetzt Tag hören oft hören nämlich ferner außerdem Haus dabei Leben jedoch später gehen endlich groß sollen"
+    - candidate: "Elena Schwarz"
+      position: -1
+      opinion: "warm schwach Tag machen deshalb Jahr immer jung und niemals"
+    - candidate: "Finn Nowak"
+      position: 1
+      opinion: "neu Kind oft allerdings gestern müssen wenn aber dann aber dürfen ferner immer oft immer nämlich schwach niemals dabei langsam"
+    - candidate: "Marlene Ziegler"
+      position: -1
+      opinion: "nämlich sein endlich oder Kind gestern heute hässlich und machen"
 - short: "Autofreie Rempartstraße"
   long: "Die Rempartstraße soll im Bereich vor der Mensa spätestens 2028 autofrei sein."
+  stances:
+    - candidate: "Clara Bergmann"
+      position: 1
+      opinion: "weil schön Straße deshalb sowie neu also sollen Frau jung hören sprechen hören Zeit Straße alt Baum Kind müssen schlecht"
+    - candidate: "Julian Voss"
+      position: 1
+      opinion: "morgen aber hässlich ferner dabei ferner übrigens zudem schlecht früher Straße dann und Jahr klein deshalb die Straße also weil"
+    - candidate: "Elena Schwarz"
+      position: -1
+      opinion: "Mensch schön jung Kind Haus Stadt hell dennoch Zeit Arbeit"
+    - candidate: "Finn Nowak"
+      position: -1
+      opinion: "manchmal gestern alt langsam schlecht und klein Haus jetzt plötzlich gehen außerdem langsam und stark sondern weil dennoch schwach Arbeit"
+    - candidate: "Marlene Ziegler"
+      position: 1
+      opinion: "zwar dürfen schwach Arbeit selten also denken Leben wissen später"
 - short: "Anbindung an die Region"
   long: "Freiburg soll durch ein dichtes Netz aus Schnellbuslinien mit den Umlandgemeinden und beliebten Ausflugszielen verbunden werden."
+  stances:
+    - candidate: "Clara Bergmann"
+      position: -1
+      opinion: "schließlich also dürfen wenn stark das langsam der die schnell zudem Stadt Haus sehen allerdings Frau zwar hören alt zudem"
+    - candidate: "Julian Voss"
+      position: 1
+      opinion: "langsam hell Kind der wissen sollen wollen Nacht also warm machen können hell sondern dabei stark Schule endlich zudem kommen"
+    - candidate: "Elena Schwarz"
+      position: -1
+      opinion: "machen alt groß gehen weil langsam später Baum gut sollen"
+    - candidate: "Finn Nowak"
+      position: -1
+      opinion: "nämlich kalt dabei denken Stadt also das schön Frau dunkel bald Nacht Stadt Nacht später oft müssen niemals klein Mensch"
+    - candidate: "Marlene Ziegler"
+      position: 1
+      opinion: "schnell plötzlich alt Baum denken müssen Zeit morgen wollen Frau"
 - short: "Parkgebühren"
   long: "Für große Autos sollen deutlich mehr Parkgebühren anfallen als für kleine Autos."
+  stances:
+    - candidate: "Clara Bergmann"
+      position: 0
+      opinion: "haben klein klein allerdings haben Haus Arbeit trotzdem Frau gehen Frau sondern neu werden Jahr gehen ferner kommen Welt manchmal"
+    - candidate: "Julian Voss"
+      position: 1
+      opinion: "sein außerdem Mann neu Schule sollen der bald deshalb dabei Stadt schlecht zwar Mensch stark zwar Frau haben dürfen gut"
+    - candidate: "Elena Schwarz"
+      position: -1
+      opinion: "das schön alt groß Straße müssen heute Stadt schließlich gestern"
+    - candidate: "Finn Nowak"
+      position: 0
+      opinion: "Leben machen gut Land sprechen sprechen wenn Zeit manchmal kommen dürfen deshalb weil hell nämlich das früher groß sondern zudem"
+    - candidate: "Marlene Ziegler"
+      position: -1
+      opinion: "Tag gehen zudem machen werden schlecht Zeit Tag aber schwach"
 - short: "Flächengerechtigkeit"
   long: "Die Stadt soll öffentliche Autoparkplätze deutlich zurückbauen, um mehr öffentlichen Straßenraum für Entsiegelung und Begegnungsflächen zu gewinnen."
+  stances:
+    - candidate: "Clara Bergmann"
+      position: 1
+      opinion: "gehen klein das nämlich Auto Zeit manchmal schön schnell kommen dunkel wollen aber die denken plötzlich immer schwach haben früher"
+    - candidate: "Julian Voss"
+      position: 1
+      opinion: "kommen Schule sehen sein plötzlich plötzlich Mann jedoch dabei Mensch Welt niemals schließlich schnell jetzt Frau Mensch allerdings gestern können"
+    - candidate: "Elena Schwarz"
+      position: 0
+      opinion: "neu gut Straße plötzlich alt das schließlich Stadt oft langsam"
+    - candidate: "Finn Nowak"
+      position: 1
+      opinion: "das dabei und klein hell dabei übrigens müssen heute dunkel gehen kommen gestern schnell kalt sprechen warm Straße der Kind"
+    - candidate: "Marlene Ziegler"
+      position: 0
+      opinion: "übrigens außerdem müssen bald Auto immer der niemals deshalb immer"
 - short: "Gehwegparken"
   long: "Zum Schutz von Kindern und Menschen mit Behinderung soll die Stadt konsequent gegen Gehwegparken vorgehen, auch wenn dadurch Parkplätze im öffentlichen Raum wegfallen."
+  stances:
+    - candidate: "Clara Bergmann"
+      position: 1
+      opinion: "Schule Schule Nacht warm schön wollen sollen immer endlich sollen sondern übrigens schön die früher und selten alt später Frau"
+    - candidate: "Julian Voss"
+      position: 1
+      opinion: "klein neu sowie früher heute schwach dunkel Land die sprechen Nacht früher früher sollen immer sondern hören die Schule sprechen"
+    - candidate: "Elena Schwarz"
+      position: -1
+      opinion: "wenn sprechen oft weil gestern stark sein Frau sprechen oder"
+    - candidate: "Finn Nowak"
+      position: -1
+      opinion: "Straße sprechen außerdem sowie weil Nacht nämlich sehen deshalb schließlich endlich Land jedoch später sondern gut trotzdem und zudem allerdings"
+    - candidate: "Marlene Ziegler"
+      position: 1
+      opinion: "wissen dabei kalt schnell daher gehen werden der gestern können"
 - short: "City-Maut"
   long: "Freiburg soll eine City-Maut nach dem Vorbild von London und Paris einführen."
+  stances:
+    - candidate: "Clara Bergmann"
+      position: 1
+      opinion: "dennoch Leben immer langsam klein Mann Mann jedoch zudem Frau Tag Leben gut dennoch sondern klein Straße hässlich dürfen gut"
+    - candidate: "Julian Voss"
+      position: 1
+      opinion: "langsam deshalb weil zwar das sondern neu alt Kind oft niemals nämlich weil sprechen jedoch und zudem aber können stark"
+    - candidate: "Elena Schwarz"
+      position: -1
+      opinion: "werden heute weil selten Jahr sowie jetzt Welt trotzdem selten"
+    - candidate: "Finn Nowak"
+      position: 1
+      opinion: "dabei Mensch schön gut sondern Jahr groß machen Schule dennoch gut später und kommen sehen klein werden dann warm langsam"
+    - candidate: "Marlene Ziegler"
+      position: -1
+      opinion: "Zeit früher alt hören Auto zwar alt heute jedoch gehen"
 - short: "Schlossbergring"
   long: "Die östliche Hälfte des Schlossbergrings soll zukünftig vollständig dem Fuß- und Radverkehr zur Verfügung stehen."
+  stances:
+    - candidate: "Clara Bergmann"
+      position: -1
+      opinion: "Frau Straße stark sondern dennoch müssen Straße und außerdem Baum stark Auto Mensch Tag selten die dabei Leben alt hässlich"
+    - candidate: "Julian Voss"
+      position: 1
+      opinion: "der jung heute wollen niemals Mensch schließlich wenn dabei morgen Straße sollen schnell dabei schnell denken Baum Leben oder manchmal"
+    - candidate: "Elena Schwarz"
+      position: -1
+      opinion: "außerdem Kind wissen Tag schwach müssen dürfen Arbeit Welt Land"
+    - candidate: "Finn Nowak"
+      position: -1
+      opinion: "trotzdem hell Land dunkel Frau schön daher daher und die manchmal Schule nämlich dann müssen können daher Auto werden morgen"
+    - candidate: "Marlene Ziegler"
+      position: 1
+      opinion: "übrigens zwar Kind manchmal das jedoch Tag also sein müssen"
 - short: "Dreisamradweg"
   long: "Der Dreisamradweg soll überall mindestens vier Meter breit sein."
+  stances:
+    - candidate: "Clara Bergmann"
+      position: -1
+      opinion: "daher klein heute Zeit oft dann schnell schnell sprechen Mensch Schule heute daher neu dunkel gehen das Jahr sehen morgen"
+    - candidate: "Julian Voss"
+      position: 1
+      opinion: "weil dürfen immer nämlich machen Mann schließlich denken oft niemals langsam klein dann jetzt sowie oder Straße Mann deshalb gestern"
+    - candidate: "Elena Schwarz"
+      position: -1
+      opinion: "sein schön Auto ferner kommen der aber und neu dabei"
+    - candidate: "Finn Nowak"
+      position: 1
+      opinion: "dann schwach Mensch wissen müssen endlich Stadt denken selten sowie jetzt dann schnell jetzt hören wenn kommen hässlich weil allerdings"
+    - candidate: "Marlene Ziegler"
+      position: -1
+      opinion: "schließlich Straße bald wenn dunkel hören gestern machen niemals manchmal"
 - short: "Lebenswerte Quartiere"
   long: "Wohnviertel sollen konsequent vom Durchgangsverkehr befreit werden."
+  stances:
+    - candidate: "Clara Bergmann"
+      position: 0
+      opinion: "nämlich nämlich jedoch klein langsam hässlich schlecht allerdings ferner dürfen dennoch und plötzlich dann langsam heute sein trotzdem das der"
+    - candidate: "Julian Voss"
+      position: 1
+      opinion: "jung hören Land und wenn allerdings kommen plötzlich langsam sein sondern langsam zwar hören Jahr dennoch Nacht schnell deshalb Baum"
+    - candidate: "Elena Schwarz"
+      position: -1
+      opinion: "schnell stark also und Leben Mensch dunkel machen dann Arbeit"
+    - candidate: "Finn Nowak"
+      position: -1
+      opinion: "Kind warm das neu können gestern schlecht sehen Schule Auto der werden Auto Tag die morgen denken klein jung dürfen"
+    - candidate: "Marlene Ziegler"
+      position: 1
+      opinion: "außerdem zwar kalt oder Haus nämlich Mensch stark hören Frau"
 - short: "Ausbau der Rheintalbahn"
   long: "Auf der bestehenden Güterbahnstrecke im Freiburger Westen soll im Rahmen des Ausbaus der Rheintalbahn eine S-Bahn-Linie entstehen."
+  stances:
+    - candidate: "Clara Bergmann"
+      position: 1
+      opinion: "Schule bald schnell wollen Welt Land schnell Nacht Schule können gestern kalt schnell sollen jung und endlich wenn haben und"
+    - candidate: "Julian Voss"
+      position: 0
+      opinion: "jedoch hören hässlich übrigens wissen jedoch neu gestern Tag hässlich bald später früher Stadt Welt hören sprechen Auto hören hören"
+    - candidate: "Elena Schwarz"
+      position: 0
+      opinion: "endlich übrigens hässlich ferner denken schlecht endlich stark Frau Stadt"
+    - candidate: "Finn Nowak"
+      position: 1
+      opinion: "und können können daher Schule später weil das hell sollen später endlich Nacht außerdem dennoch sondern Land morgen morgen selten"
+    - candidate: "Marlene Ziegler"
+      position: 0
+      opinion: "oft neu außerdem zudem Kind deshalb jetzt ferner dürfen trotzdem"
 - short: "Stadtbahn"
   long: "St. Georgen soll eine Stadtbahn erhalten."
+  stances:
+    - candidate: "Clara Bergmann"
+      position: -1
+      opinion: "sowie dann endlich gestern haben selten zwar endlich gestern die zwar manchmal Stadt jung kalt machen Stadt hell Baum Haus"
+    - candidate: "Julian Voss"
+      position: 1
+      opinion: "denken aber sehen werden stark dürfen später Arbeit niemals jung zudem Land außerdem Zeit bald selten schließlich plötzlich wenn selten"
+    - candidate: "Elena Schwarz"
+      position: 0
+      opinion: "Zeit jung müssen immer klein Kind sowie Mann manchmal dabei"
+    - candidate: "Finn Nowak"
+      position: 0
+      opinion: "langsam übrigens neu das alt dennoch daher jetzt aber kommen haben Straße Baum niemals schließlich die jedoch schön und Auto"
+    - candidate: "Marlene Ziegler"
+      position: 0
+      opinion: "kommen jung neu Land dann hässlich Schule gehen der dennoch"

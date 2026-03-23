@@ -14,6 +14,10 @@ const state = {
 
 // ─── Score Calculation ────────────────────────────────────────────────────────
 
+function getStance(candidateNameShort, qi) {
+  return DATA.questions[qi].stances.find((s) => s.candidate === candidateNameShort);
+}
+
 function calcResults() {
   return DATA.candidates
     .map((c, idx) => {
@@ -23,7 +27,7 @@ function calcResults() {
         const ans = state.answers[q];
         if (ans === null || ans === 99) continue;
         maxScore += 1;
-        const pos = c.stances[q].position;
+        const pos = getStance(c.nameShort, q).position;
         if (pos === ans) score += 1;
         else if (pos === 0 || ans === 0) score += 0.5;
       }
@@ -236,7 +240,8 @@ function renderThesesTab(results) {
       const ans = state.answers[qi];
       const rows = sorted
         .map((r) => {
-          const pos = r.c.stances[qi].position;
+          const stance = getStance(r.c.nameShort, qi);
+          const pos = stance.position;
           const posCol =
             pos === 1
               ? "text-green-600 dark:text-green-400"
@@ -249,7 +254,7 @@ function renderThesesTab(results) {
             <span class="mt-0.5 w-5 shrink-0 font-bold ${posCol}">${posIcon(pos)}</span>
             <div class="min-w-0">
               <span class="text-sm font-medium text-stone-700 dark:text-stone-300">${r.c.nameShort}:</span>
-              <span class="ml-1 text-sm text-stone-500 dark:text-stone-400">${r.c.stances[qi].opinion}</span>
+              <span class="ml-1 text-sm text-stone-500 dark:text-stone-400">${stance.opinion}</span>
             </div>
           </div>
         </div>`;
@@ -285,7 +290,8 @@ function renderPartiesTab(results) {
       const res = results.find((x) => x.idx === r.idx);
       const rows = DATA.questions
         .map((q, qi) => {
-          const pos = r.c.stances[qi].position;
+          const stance = getStance(r.c.nameShort, qi);
+          const pos = stance.position;
           const ans = state.answers[qi];
           let matchIcon = "",
             matchCol = "";
@@ -317,7 +323,7 @@ function renderPartiesTab(results) {
                 <span class="text-sm font-medium text-stone-700 dark:text-stone-200">${q.short}</span>
                 <span class="ml-auto text-sm font-bold ${posCol}">${posIcon(pos)}</span>
               </div>
-              <p class="text-xs leading-relaxed text-stone-400 dark:text-stone-500">${r.c.stances[qi].opinion}</p>
+              <p class="text-xs leading-relaxed text-stone-400 dark:text-stone-500">${stance.opinion}</p>
             </div>
           </div>
         </div>`;
