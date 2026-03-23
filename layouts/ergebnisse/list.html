@@ -335,7 +335,7 @@ $candidates := site.Data.mobilomat.candidates }} {{ $icons := dict "1" "✓" "0"
   }
 
   async function share() {
-    const url = {{ site.BaseURL | jsonify | safeJS }};
+    const url = window.location.origin;
     const title = "Meine FR Mobil-O-Mat Ergebnisse";
     const ranking = results
       .map((r, i) => `${i + 1}. ${r.name}: ${r.pct}%`)
