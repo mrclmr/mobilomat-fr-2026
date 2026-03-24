@@ -47,7 +47,7 @@ cond $isLast "/ergebnisse/" (printf "/fragen/%d/" (add $qi 2)) }}
       <span class="w-7 shrink-0 text-xl">✗</span><span>Stimme nicht zu</span>
     </label>
     <label class="vote-btn vote-btn-skip">
-      <input type="radio" name="vote" value="99" class="hidden" />
+      <input type="radio" name="vote" value="99" class="hidden" checked />
       <span class="w-7 shrink-0 text-lg">→</span><span>Überspringen</span>
     </label>
   </div>
@@ -78,19 +78,21 @@ cond $isLast "/ergebnisse/" (printf "/fragen/%d/" (add $qi 2)) }}
     try { return JSON.parse(localStorage.getItem(KEY)) || []; } catch { return []; }
   }
 
-  // Restore saved answer
-  const saved = answers()[QI];
-  if (saved != null) {
-    const el = document.querySelector(`[name="vote"][value="${saved}"]`);
-    if (el) el.checked = true;
+  // Restore saved answer, or default to skipped
+  const a = answers();
+  if (a[QI] == null) {
+    a[QI] = 99;
+    localStorage.setItem(KEY, JSON.stringify(a));
+  } else {
+    document.querySelector(`[name="vote"][value="${a[QI]}"]`).checked = true;
   }
 
   // Save on change
   document.addEventListener("change", (e) => {
     if (e.target.name !== "vote") return;
-    const a = answers();
-    a[QI] = Number(e.target.value);
-    localStorage.setItem(KEY, JSON.stringify(a));
+    const ans = answers();
+    ans[QI] = Number(e.target.value);
+    localStorage.setItem(KEY, JSON.stringify(ans));
   });
 </script>
 {{ end }}
