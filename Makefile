@@ -8,7 +8,7 @@ PRETTIER_CMD := npx prettier .
 all: lint
 
 serve:
-	hugo server --noHTTPCache --bind 0.0.0.0 --baseURL http://localhost
+	hugo server --noHTTPCache --bind 0.0.0.0 --baseURL http://0.0.0.0
 
 lint:
 	$(PRETTIER_CMD) --check

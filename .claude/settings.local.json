@@ -1,5 +1,10 @@
 {
   "permissions": {
-    "allow": ["Bash(hugo version:*)", "Bash(hugo:*)", "Bash(make format:*)"]
+    "allow": [
+      "Bash(hugo version:*)",
+      "Bash(hugo:*)",
+      "Bash(make format:*)",
+      "Bash(qrtool encode:*)"
+    ]
   }
 }

@@ -22,3 +22,9 @@ npm install
 ```
 make serve
 ```
+
+## Show QR-Code for local network
+
+```
+qrtool encode -t unicode -s 3 "http://$(ipconfig getifaddr en0):1313"
+```
