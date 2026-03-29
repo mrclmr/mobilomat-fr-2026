@@ -28,7 +28,6 @@ make serve
 
 ## Todo
 
-- [ ] Percent numbers in results should have a gradient, between the predefined used colors red, yellow and green
 - [ ] Link in results to return to question?
 - [ ] The progress bar above questions show has thin separators to represent each space for an answer. The filled color of the progress bar represents the answer. The progress bar height should be increased
 
@@ -40,5 +39,6 @@ make serve
 - [x] "Ihre Antwort" -> "Deine Antwort"
 - [x] Datenschutz Hinweise, es wird eine veränderte Versin von https://chormunity-freiburg.de/datenschutzerklaerung/ geben
 
+- [ ] ~~Percent numbers in results should have a gradient, between the predefined used colors red, yellow and green~~
 - [ ] ~~In results use same vote badges for candidates as your vote badge~~
 - [ ] ~~Below the progress bar show dots with the height of the progress bar. These dots will get the color of the answers~~
