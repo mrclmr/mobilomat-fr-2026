@@ -4,11 +4,25 @@ $candidates := hugo.Data.mobilomat.candidates }} {{ $icons := dict "1" "✓" "0"
 "pct-red" }}
 
 <div class="mx-auto flex min-h-screen max-w-lg flex-col p-4 sm:p-6">
-  <div class="mb-5">
-    <h1 class="mb-1">Ergebnisse</h1>
-    <p class="text-sm text-stone-500 dark:text-stone-400">
-      Übereinstimmung mit Ihren Antworten
-    </p>
+  <div class="mb-5 overflow-hidden py-3">
+    <div class="mb-2 flex justify-center">
+      <div
+        class="w-fit rotate-[-3deg] rounded-xl bg-vcd-green/80 px-4 py-1 text-center backdrop-blur-sm dark:bg-vcd-green/70"
+      >
+        <h1 class="text-2xl font-black tracking-wide text-white sm:text-3xl">
+          Ergebnisse
+        </h1>
+      </div>
+    </div>
+    <div class="flex justify-center">
+      <div
+        class="rotate-[2deg] rounded-xl bg-vcd-petrol/80 px-3 py-1 text-center backdrop-blur-sm dark:bg-vcd-petrol/70"
+      >
+        <p class="text-xs font-medium text-white sm:text-sm">
+          Übereinstimmung mit Deinen Antworten
+        </p>
+      </div>
+    </div>
   </div>
 
   <div
@@ -31,7 +45,7 @@ $candidates := hugo.Data.mobilomat.candidates }} {{ $icons := dict "1" "✓" "0"
 
   {{/* ── Summary tab ───────────────────────────────────────────────────────
   */}}
-  <div id="tab-summary" class="flex-grow">
+  <div id="tab-summary">
     <div id="summary-cards">
       {{ range $i, $c := $candidates }}
       <div data-candidate="{{ $c.nameShort }}" class="card mb-3">
@@ -80,7 +94,7 @@ $candidates := hugo.Data.mobilomat.candidates }} {{ $icons := dict "1" "✓" "0"
 
   {{/* ── Theses tab ─────────────────────────────────────────────────────────
   */}}
-  <div id="tab-theses" class="hidden flex-grow">
+  <div id="tab-theses" class="hidden">
     {{ range $qi, $q := $questions }}
     <details class="card mb-3">
       <summary class="flex cursor-pointer list-none items-start gap-3">
@@ -135,7 +149,7 @@ $candidates := hugo.Data.mobilomat.candidates }} {{ $icons := dict "1" "✓" "0"
 
   {{/* ── Parties tab ────────────────────────────────────────────────────────
   */}}
-  <div id="tab-parties" class="hidden flex-grow">
+  <div id="tab-parties" class="hidden">
     <div id="parties-cards">
       {{ range $c := $candidates }}
       <details data-candidate="{{ $c.nameShort }}" class="card mb-3">

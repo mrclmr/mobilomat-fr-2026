@@ -29,8 +29,8 @@ make serve
 ## Todo
 
 - [ ] Link in results to return to question?
-- [ ] The progress bar above questions show has thin separators to represent each space for an answer. The filled color of the progress bar represents the answer. The progress bar height should be increased
 
+- [x] The progress bar above questions show has thin separators to represent each space for an answer. The filled color of the progress bar represents the answer. The progress bar height should be increased
 - [x] Title "Mobil-O-Mat" can span over the full width without covering the girl. Increase the gap to the subtitle
 - [x] Disclaimer updaten, Erwatungsmanagement
 - [x] Remove "Weiter" und "Zurück" Buttons. If an answer is selected go to next page

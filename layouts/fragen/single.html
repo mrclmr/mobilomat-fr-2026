@@ -11,18 +11,14 @@ cond $isLast "/ergebnisse/" (printf "/fragen/%d/" (add $qi 2)) }}
         class="mb-2 flex justify-between text-sm text-stone-500 dark:text-stone-400"
       >
         <span>Frage {{ $num }} von {{ $total }}</span>
-        <span
-          >{{ mul (div (float (sub $num 1)) $total) 100 | lang.FormatNumber 0
-          }}%</span
-        >
       </div>
-      <div
-        class="h-2.5 overflow-hidden rounded-full bg-vcd-green/40 dark:bg-vcd-green/20"
-      >
+      <div class="flex items-center gap-0.5">
+        {{ range $i, $q := $questions }}
         <div
-          class="h-full rounded-full bg-vcd-green transition-all duration-500"
-          style="width:{{ mul (div (float (sub $num 1)) $total) 100 }}%"
+          class="progress-seg flex-1 rounded-sm {{ if eq $i $qi }}h-6 bg-vcd-petrol{{ else }}h-4 bg-stone-200 dark:bg-stone-700{{ end }}"
+          data-qi="{{ $i }}"
         ></div>
+        {{ end }}
       </div>
     </div>
   </div>
@@ -76,6 +72,16 @@ cond $isLast "/ergebnisse/" (printf "/fragen/%d/" (add $qi 2)) }}
   function answers() {
     try { return JSON.parse(localStorage.getItem(KEY)) || []; } catch { return []; }
   }
+
+  // Color progress segments from saved answers
+  const ANS_COLOR = { "1": "#aec905", "0": "#f5c200", "-1": "#e03535", "99": "#a8a29e" };
+  const savedAll = answers();
+  document.querySelectorAll(".progress-seg").forEach((seg) => {
+    const qi = Number(seg.dataset.qi);
+    if (qi === QI) return;
+    const ans = savedAll[qi];
+    if (ans != null) seg.style.backgroundColor = ANS_COLOR[String(ans)];
+  });
 
   // Show subtle hint for previously saved answer
   const a = answers();
