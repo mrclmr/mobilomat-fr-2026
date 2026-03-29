@@ -25,3 +25,15 @@ npm install
 ```
 make serve
 ```
+
+## Todo
+
+- [ ] Percent numbers in results should have a gradient, between the predefined used colors red, yellow and green
+- [ ] "Ihre Antwort" -> "Deine Antwort"
+- [ ] Directly jump to next page after answer. Remove "Zurück" and "Weiter"
+- [ ] Don't preselect "Überspringen". Allow only "Weiter" if answer is selected
+- [ ] Link in results to return to question
+- [ ] In results use same vote badges for candidates as your vote badge
+- [ ] Title "Mobil-O-Mat" can span over the full width without covering the girl. Increase the gap to the subtitle
+- [ ] Below the progress bar show dots with the height of the progress bar. These dots will get the color of the answers
+- [ ] The progress bar above questions show has thin separators to represent each space for an answer. The filled color of the progress bar represents the answer. The progress bar height should be increased
