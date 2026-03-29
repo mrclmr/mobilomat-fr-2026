@@ -7,8 +7,12 @@ PRETTIER_CMD := npx prettier .
 
 all: lint
 
+# Use http://localhost:1313
+# 0.0.0.0 is used to allow access in local network
 serve:
-	hugo server --noHTTPCache --bind 0.0.0.0 --baseURL http://0.0.0.0
+	echo "$$(ipconfig getifaddr en0)"
+	qrtool encode -t unicode "http://$$(ipconfig getifaddr en0):1313"
+	hugo server --noHTTPCache --bind 0.0.0.0 --baseURL http://localhost
 
 lint:
 	$(PRETTIER_CMD) --check

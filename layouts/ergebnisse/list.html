@@ -1,5 +1,5 @@
-{{ define "main" }} {{ $questions := site.Data.mobilomat.questions }} {{
-$candidates := site.Data.mobilomat.candidates }} {{ $icons := dict "1" "✓" "0"
+{{ define "main" }} {{ $questions := hugo.Data.mobilomat.questions }} {{
+$candidates := hugo.Data.mobilomat.candidates }} {{ $icons := dict "1" "✓" "0"
 "○" "-1" "✗" }} {{ $colors := dict "1" "pct-green" "0" "pct-amber" "-1"
 "pct-red" }}
 
@@ -11,7 +11,9 @@ $candidates := site.Data.mobilomat.candidates }} {{ $icons := dict "1" "✓" "0"
     </p>
   </div>
 
-  <div class="mb-5 flex gap-1 rounded-xl bg-stone-200 p-1 dark:bg-stone-800">
+  <div
+    class="mb-5 flex gap-1 rounded-xl bg-vcd-petrol p-1 dark:bg-vcd-petrol-dark"
+  >
     <button onclick="setTab('summary')" id="btn-summary" class="tab tab-active">
       Überblick
     </button>
@@ -197,16 +199,30 @@ $candidates := site.Data.mobilomat.candidates }} {{ $icons := dict "1" "✓" "0"
   <div class="mt-6 space-y-3">
     <button
       onclick="share()"
-      class="w-full rounded-xl border border-stone-200 px-5 py-3.5 font-semibold text-stone-700 transition-colors hover:bg-stone-50 dark:border-stone-700 dark:text-stone-300 dark:hover:bg-stone-800"
+      class="flex w-full items-center justify-center gap-2 rounded-xl border border-stone-200 px-5 py-3.5 font-semibold text-stone-700 transition-colors hover:bg-stone-50 dark:border-stone-700 dark:text-stone-300 dark:hover:bg-stone-800"
     >
-      ↗ Ergebnis teilen
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="18"
+        height="18"
+        viewBox="0 0 50 50"
+        fill="currentColor"
+        aria-hidden="true"
+      >
+        <path d="M30.3 13.7L25 8.4l-5.3 5.3-1.4-1.4L25 5.6l6.7 6.7z" />
+        <path d="M24 7h2v21h-2z" />
+        <path
+          d="M35 40H15c-1.7 0-3-1.3-3-3V19c0-1.7 1.3-3 3-3h7v2h-7c-.6 0-1 .4-1 1v18c0 .6.4 1 1 1h20c.6 0 1-.4 1-1V19c0-.6-.4-1-1-1h-7v-2h7c1.7 0 3 1.3 3 3v18c0 1.7-1.3 3-3 3z"
+        />
+      </svg>
+      Ergebnis teilen
     </button>
     <button onclick="restart()" class="btn-primary w-full">
       ↺ Neu starten
     </button>
     <p class="text-center text-xs text-stone-400 dark:text-stone-600">
       <a
-        href="{{ site.Data.mobilomat.meta.imprintLink }}"
+        href="{{ hugo.Data.mobilomat.meta.imprintLink }}"
         target="_blank"
         rel="noopener"
         class="hover:underline"

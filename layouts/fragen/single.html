@@ -1,73 +1,77 @@
 {{ define "main" }} {{ $qi := .Params.questionIndex }} {{ $questions :=
-site.Data.mobilomat.questions }} {{ $q := index $questions $qi }} {{ $total :=
+hugo.Data.mobilomat.questions }} {{ $q := index $questions $qi }} {{ $total :=
 len $questions }} {{ $num := add $qi 1 }} {{ $isLast := eq $num $total }} {{
 $prevURL := cond (eq $qi 0) "/" (printf "/fragen/%d/" $qi) }} {{ $nextURL :=
 cond $isLast "/ergebnisse/" (printf "/fragen/%d/" (add $qi 2)) }}
 
-<div class="mx-auto flex min-h-screen max-w-lg flex-col p-4 sm:p-6">
-  <div class="mb-5">
-    <div
-      class="mb-2 flex justify-between text-sm text-stone-400 dark:text-stone-500"
-    >
-      <span>Frage {{ $num }} von {{ $total }}</span>
-      <span
-        >{{ mul (div (float (sub $num 1)) $total) 100 | lang.FormatNumber 0
-        }}%</span
-      >
-    </div>
-    <div
-      class="h-1.5 overflow-hidden rounded-full bg-stone-200 dark:bg-stone-700"
-    >
+<div class="flex min-h-screen flex-col">
+  <div class="bg-vcd-green-tint px-4 pb-5 pt-4 dark:bg-vcd-green/10 sm:px-6">
+    <div class="mx-auto max-w-lg">
       <div
-        class="h-full rounded-full bg-green-500 transition-all duration-500"
-        style="width:{{ mul (div (float (sub $num 1)) $total) 100 }}%"
-      ></div>
+        class="mb-2 flex justify-between text-sm text-stone-500 dark:text-stone-400"
+      >
+        <span>Frage {{ $num }} von {{ $total }}</span>
+        <span
+          >{{ mul (div (float (sub $num 1)) $total) 100 | lang.FormatNumber 0
+          }}%</span
+        >
+      </div>
+      <div
+        class="h-1.5 overflow-hidden rounded-full bg-vcd-green/20 dark:bg-vcd-green/10"
+      >
+        <div
+          class="h-full rounded-full bg-vcd-green transition-all duration-500"
+          style="width:{{ mul (div (float (sub $num 1)) $total) 100 }}%"
+        ></div>
+      </div>
     </div>
   </div>
 
-  <div class="card mb-5 flex-grow">
-    <h2 class="mb-3">{{ $q.short }}</h2>
-    <p class="leading-relaxed text-stone-600 dark:text-stone-300">
-      {{ $q.long }}
+  <div class="mx-auto flex w-full max-w-lg flex-1 flex-col p-4 sm:p-6">
+    <div class="card mb-5 flex-grow">
+      <h2 class="mb-3">{{ $q.short }}</h2>
+      <p class="leading-relaxed text-stone-600 dark:text-stone-300">
+        {{ $q.long }}
+      </p>
+    </div>
+
+    <div class="mb-5 space-y-2.5">
+      <label class="vote-btn vote-btn-pro">
+        <input type="radio" name="vote" value="1" class="hidden" />
+        <span class="w-7 shrink-0 text-xl">✓</span><span>Stimme zu</span>
+      </label>
+      <label class="vote-btn vote-btn-neutral">
+        <input type="radio" name="vote" value="0" class="hidden" />
+        <span class="w-7 shrink-0 text-xl">○</span
+        ><span>Egal&nbsp;/ Weiß nicht</span>
+      </label>
+      <label class="vote-btn vote-btn-contra">
+        <input type="radio" name="vote" value="-1" class="hidden" />
+        <span class="w-7 shrink-0 text-xl">✗</span><span>Stimme nicht zu</span>
+      </label>
+      <label class="vote-btn vote-btn-skip">
+        <input type="radio" name="vote" value="99" class="hidden" checked />
+        <span class="w-7 shrink-0 text-lg">→</span><span>Überspringen</span>
+      </label>
+    </div>
+
+    <div class="flex gap-3">
+      <a href="{{ $prevURL }}" class="nav-btn flex-1 text-center">← Zurück</a>
+      <a href="{{ $nextURL }}" class="nav-btn-primary flex-1 text-center">
+        {{ if $isLast }}Ergebnisse →{{ else }}Weiter →{{ end }}
+      </a>
+    </div>
+
+    <p class="mt-6 text-center text-xs text-stone-400 dark:text-stone-600">
+      <a
+        href="{{ hugo.Data.mobilomat.meta.imprintLink }}"
+        target="_blank"
+        rel="noopener"
+        class="hover:underline"
+        >Impressum</a
+      >
     </p>
   </div>
-
-  <div class="mb-5 space-y-2.5">
-    <label class="vote-btn vote-btn-pro">
-      <input type="radio" name="vote" value="1" class="hidden" />
-      <span class="w-7 shrink-0 text-xl">✓</span><span>Stimme zu</span>
-    </label>
-    <label class="vote-btn vote-btn-neutral">
-      <input type="radio" name="vote" value="0" class="hidden" />
-      <span class="w-7 shrink-0 text-xl">○</span
-      ><span>Egal&nbsp;/ Weiß nicht</span>
-    </label>
-    <label class="vote-btn vote-btn-contra">
-      <input type="radio" name="vote" value="-1" class="hidden" />
-      <span class="w-7 shrink-0 text-xl">✗</span><span>Stimme nicht zu</span>
-    </label>
-    <label class="vote-btn vote-btn-skip">
-      <input type="radio" name="vote" value="99" class="hidden" checked />
-      <span class="w-7 shrink-0 text-lg">→</span><span>Überspringen</span>
-    </label>
-  </div>
-
-  <div class="flex gap-3">
-    <a href="{{ $prevURL }}" class="nav-btn flex-1 text-center">← Zurück</a>
-    <a href="{{ $nextURL }}" class="nav-btn-primary flex-1 text-center">
-      {{ if $isLast }}Ergebnisse →{{ else }}Weiter →{{ end }}
-    </a>
-  </div>
-
-  <p class="mt-6 text-center text-xs text-stone-400 dark:text-stone-600">
-    <a
-      href="{{ site.Data.mobilomat.meta.imprintLink }}"
-      target="_blank"
-      rel="noopener"
-      class="hover:underline"
-      >Impressum</a
-    >
-  </p>
 </div>
 
 <script>

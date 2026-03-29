@@ -6,6 +6,8 @@ Make these tools avaialbe in path:
 
 - NodeJS (see version in [package.json](package.json))
 - [Hugo](https://github.com/gohugoio/hugo)
+- [qrtool](https://sorairolake.github.io/qrtool/book/index.html)
+  - for macOS: `brew install qrtool`
 - [Go](https://go.dev/dl/)
 - [yamlfmt](https://github.com/google/yamlfmt) ( needed for installation)
   ```
@@ -22,10 +24,4 @@ npm install
 
 ```
 make serve
-```
-
-## Show QR-Code for local network
-
-```
-qrtool encode -t unicode -s 3 "http://$(ipconfig getifaddr en0):1313"
 ```

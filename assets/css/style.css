@@ -2,6 +2,19 @@
 @import "components/font/inter.css";
 @source "layouts";
 
+@theme {
+  /* VCD Corporate Design Colors */
+  --color-vcd-green: #aec905;
+  --color-vcd-green-dark: #8a9d04;
+  --color-vcd-green-tint: #f4f7d9;
+  --color-vcd-petrol: #049eab;
+  --color-vcd-petrol-dark: #037a85;
+  --color-vcd-petrol-tint: #e3f6f8;
+  --color-vcd-orange: #eb6502;
+  --color-vcd-orange-dark: #bc5102;
+  --color-vcd-orange-tint: #fdf0e6;
+}
+
 @layer base {
   h1 {
     @apply text-2xl font-semibold text-stone-800 sm:text-3xl dark:text-stone-100;
@@ -17,7 +30,7 @@
   }
 
   .btn-primary {
-    @apply rounded-xl bg-green-700 px-5 py-3.5 font-semibold text-white transition-colors hover:bg-green-800 active:bg-green-900;
+    @apply rounded-xl bg-stone-800 px-5 py-3.5 font-semibold text-white transition-colors hover:bg-stone-700 active:bg-stone-900 dark:bg-stone-200 dark:text-stone-900 dark:hover:bg-stone-300;
   }
 
   .nav-btn {
@@ -28,44 +41,44 @@
     @apply rounded-xl bg-stone-800 px-4 py-3.5 font-medium text-white transition-colors hover:bg-stone-700 dark:bg-stone-200 dark:text-stone-900 dark:hover:bg-stone-300;
   }
 
-  /* Unselected: neutral/muted so selection stands out clearly */
+  /* Unselected: plain white/border — color only appears on selection */
   .vote-btn {
     @apply flex min-h-14 w-full cursor-pointer items-center gap-3 rounded-xl border-2 px-5 py-4 text-left font-medium transition-all;
   }
   .vote-btn-pro {
-    @apply border-green-200 bg-green-50 text-stone-400
-           hover:border-green-300
-           dark:border-green-900 dark:bg-green-950/30 dark:text-stone-500;
+    @apply border-stone-200 bg-white text-stone-500
+           hover:border-vcd-green/50
+           dark:border-stone-700 dark:bg-stone-800 dark:text-stone-400;
   }
   .vote-btn-pro:has(:checked) {
-    @apply border-green-500 bg-green-100 text-green-900
-           dark:border-green-600 dark:bg-green-950/70 dark:text-green-200;
+    @apply border-vcd-green bg-vcd-green-tint text-stone-800
+           dark:border-vcd-green/80 dark:bg-vcd-green/20 dark:text-stone-100;
   }
   .vote-btn-neutral {
-    @apply border-amber-200 bg-amber-50 text-stone-400
-           hover:border-amber-300
-           dark:border-amber-900 dark:bg-amber-950/30 dark:text-stone-500;
+    @apply border-stone-200 bg-white text-stone-500
+           hover:border-vcd-petrol/50
+           dark:border-stone-700 dark:bg-stone-800 dark:text-stone-400;
   }
   .vote-btn-neutral:has(:checked) {
-    @apply border-amber-400 bg-amber-100 text-amber-900
-           dark:border-amber-600 dark:bg-amber-950/70 dark:text-amber-200;
+    @apply border-vcd-petrol bg-vcd-petrol-tint text-stone-800
+           dark:border-vcd-petrol/80 dark:bg-vcd-petrol/20 dark:text-stone-100;
   }
   .vote-btn-contra {
-    @apply border-red-200 bg-red-50 text-stone-400
-           hover:border-red-300
-           dark:border-red-900 dark:bg-red-950/30 dark:text-stone-500;
+    @apply border-stone-200 bg-white text-stone-500
+           hover:border-vcd-orange/50
+           dark:border-stone-700 dark:bg-stone-800 dark:text-stone-400;
   }
   .vote-btn-contra:has(:checked) {
-    @apply border-red-500 bg-red-100 text-red-900
-           dark:border-red-600 dark:bg-red-950/70 dark:text-red-200;
+    @apply border-vcd-orange bg-vcd-orange-tint text-stone-800
+           dark:border-vcd-orange/80 dark:bg-vcd-orange/20 dark:text-stone-100;
   }
   .vote-btn-skip {
-    @apply border-stone-200 bg-stone-100 text-stone-400
+    @apply border-stone-200 bg-white text-stone-500
            hover:border-stone-300
-           dark:border-stone-700 dark:bg-stone-800 dark:text-stone-500;
+           dark:border-stone-700 dark:bg-stone-800 dark:text-stone-400;
   }
   .vote-btn-skip:has(:checked) {
-    @apply border-stone-400 bg-stone-200 text-stone-800
+    @apply border-stone-400 bg-stone-100 text-stone-700
            dark:border-stone-500 dark:bg-stone-700 dark:text-stone-200;
   }
 
@@ -73,64 +86,64 @@
     @apply flex-1 rounded-lg px-3 py-2 text-center text-sm font-medium transition-colors;
   }
   .tab-active {
-    @apply bg-white text-stone-900 shadow-sm dark:bg-stone-700 dark:text-stone-50;
+    @apply bg-vcd-petrol text-white shadow-sm;
   }
   .tab-inactive {
-    @apply text-stone-400 hover:text-stone-600 dark:text-stone-500 dark:hover:text-stone-300;
+    @apply text-white/70 hover:text-white dark:text-white/60 dark:hover:text-white;
   }
 
   .bar-green {
-    @apply bg-green-600;
+    @apply bg-vcd-green;
   }
   .bar-amber {
-    @apply bg-amber-500;
+    @apply bg-vcd-petrol;
   }
   .bar-red {
-    @apply bg-red-500;
+    @apply bg-vcd-orange;
   }
 
   .pct-green {
-    @apply text-green-700 dark:text-green-500;
+    @apply text-vcd-green-dark dark:text-vcd-green;
   }
   .pct-amber {
-    @apply text-amber-700 dark:text-amber-500;
+    @apply text-vcd-petrol-dark dark:text-vcd-petrol;
   }
   .pct-red {
-    @apply text-red-700 dark:text-red-500;
+    @apply text-vcd-orange-dark dark:text-vcd-orange;
   }
 
   .card-top {
-    @apply ring-2 ring-green-600 dark:ring-green-700;
+    @apply ring-2 ring-vcd-petrol dark:ring-vcd-petrol;
   }
 
   .rank-first {
-    @apply bg-green-700 text-white;
+    @apply bg-vcd-petrol text-white;
   }
   .rank-other {
     @apply bg-stone-100 text-stone-500 dark:bg-stone-700 dark:text-stone-400;
   }
 
   .match-agree {
-    @apply text-green-700 dark:text-green-500;
+    @apply text-vcd-green-dark dark:text-vcd-green;
   }
   .match-partial {
-    @apply text-amber-600 dark:text-amber-500;
+    @apply text-vcd-petrol-dark dark:text-vcd-petrol;
   }
   .match-disagree {
-    @apply text-red-600 dark:text-red-500;
+    @apply text-vcd-orange-dark dark:text-vcd-orange;
   }
 
   .vote-badge {
     @apply inline-flex items-center gap-1 rounded-lg border-2 border-stone-200 bg-stone-100 px-2 py-0.5 text-xs font-medium text-stone-500 dark:border-stone-700 dark:bg-stone-800 dark:text-stone-400;
   }
   .vote-badge-pro {
-    @apply border-green-500 bg-green-100 text-green-900 dark:border-green-600 dark:bg-green-950/70 dark:text-green-200;
+    @apply border-vcd-green bg-vcd-green-tint text-stone-800 dark:border-vcd-green/60 dark:bg-vcd-green/20 dark:text-stone-100;
   }
   .vote-badge-neutral {
-    @apply border-amber-400 bg-amber-100 text-amber-900 dark:border-amber-600 dark:bg-amber-950/70 dark:text-amber-200;
+    @apply border-vcd-petrol bg-vcd-petrol-tint text-stone-800 dark:border-vcd-petrol/60 dark:bg-vcd-petrol/20 dark:text-stone-100;
   }
   .vote-badge-contra {
-    @apply border-red-500 bg-red-100 text-red-900 dark:border-red-600 dark:bg-red-950/70 dark:text-red-200;
+    @apply border-vcd-orange bg-vcd-orange-tint text-stone-800 dark:border-vcd-orange/60 dark:bg-vcd-orange/20 dark:text-stone-100;
   }
   .vote-badge-skip {
     @apply border-stone-400 bg-stone-200 text-stone-800 dark:border-stone-500 dark:bg-stone-700 dark:text-stone-200;
