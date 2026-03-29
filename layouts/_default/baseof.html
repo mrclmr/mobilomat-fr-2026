@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ .Site.Language.Locale }}">
+<html lang="{{ .Site.Language.Locale }}" class="sm:text-lg">
   <head>
     {{ with resources.Get "css/style.css" }} {{ $opts := dict "inlineImports"
     true "minify" hugo.IsProduction }} {{ with . | css.TailwindCSS $opts }} {{
