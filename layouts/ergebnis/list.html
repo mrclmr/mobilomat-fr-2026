@@ -72,14 +72,11 @@ $colors := dict "1" "pct-green" "0" "pct-amber" "-1" "pct-red" }}
             <span>Antworten d. Kandidierenden</span>
             <svg
               class="h-4 w-4 shrink-0 [transform:translateZ(0)_rotate(0deg)] transition-transform duration-300 ease-in-out [details[open]_&]:[transform:translateZ(0)_rotate(90deg)]"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="3"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              viewBox="0 0 257.2 450.1"
+              fill="currentColor"
+              aria-hidden="true"
             >
-              <path d="M9 18l6-6-6-6" />
+              {{ partial "icon" "icons/ionic-chevron-right.svg" }}
             </svg>
           </div>
         </summary>
@@ -132,14 +129,11 @@ $colors := dict "1" "pct-green" "0" "pct-amber" "-1" "pct-red" }}
               >
                 <svg
                   class="h-4 w-4 rotate-[-90deg]"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="3"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  viewBox="0 0 257.2 450.1"
+                  fill="currentColor"
+                  aria-hidden="true"
                 >
-                  <path d="M9 18l6-6-6-6" />
+                  {{ partial "icon" "icons/ionic-chevron-right.svg" }}
                 </svg>
                 Zuklappen
               </button>
@@ -227,14 +221,11 @@ $colors := dict "1" "pct-green" "0" "pct-amber" "-1" "pct-red" }}
             >
               <svg
                 class="h-4 w-4 rotate-[-90deg]"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="3"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                viewBox="0 0 257.2 450.1"
+                fill="currentColor"
+                aria-hidden="true"
               >
-                <path d="M9 18l6-6-6-6" />
+                {{ partial "icon" "icons/ionic-chevron-right.svg" }}
               </svg>
               Zuklappen
             </button>
@@ -251,26 +242,28 @@ $colors := dict "1" "pct-green" "0" "pct-amber" "-1" "pct-red" }}
       class="btn-primary flex w-full items-center justify-center gap-2"
     >
       <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="18"
-        height="18"
-        viewBox="0 0 50 50"
+        class="h-6 w-6"
+        viewBox="0 0 384 320.1"
         fill="currentColor"
         aria-hidden="true"
       >
-        <path d="M30.3 13.7L25 8.4l-5.3 5.3-1.4-1.4L25 5.6l6.7 6.7z" />
-        <path d="M24 7h2v21h-2z" />
-        <path
-          d="M35 40H15c-1.7 0-3-1.3-3-3V19c0-1.7 1.3-3 3-3h7v2h-7c-.6 0-1 .4-1 1v18c0 .6.4 1 1 1h20c.6 0 1-.4 1-1V19c0-.6-.4-1-1-1h-7v-2h7c1.7 0 3 1.3 3 3v18c0 1.7-1.3 3-3 3z"
-        />
+        {{ partial "icon" "icons/ionic-share.svg" }}
       </svg>
       Ergebnis teilen
     </button>
     <button
       onclick="restart()"
-      class="w-full rounded-full border-2 border-vcd-petrol/40 bg-vcd-petrol-tint px-5 py-3.5 font-semibold text-vcd-petrol-dark transition-all hover:bg-vcd-petrol/20 active:scale-[0.98] dark:border-vcd-petrol/50 dark:bg-vcd-petrol/20 dark:text-vcd-petrol dark:hover:bg-vcd-petrol/30"
+      class="flex w-full items-center justify-center gap-2 rounded-full border-2 border-vcd-petrol/40 bg-vcd-petrol-tint px-5 py-3.5 font-semibold text-vcd-petrol-dark transition-all hover:bg-vcd-petrol/20 active:scale-[0.98] dark:border-vcd-petrol/50 dark:bg-vcd-petrol/20 dark:text-vcd-petrol dark:hover:bg-vcd-petrol/30"
     >
-      ↺ Neu starten
+      <svg
+        class="h-5 w-5"
+        viewBox="0 0 352 352"
+        fill="currentColor"
+        aria-hidden="true"
+      >
+        {{ partial "icon" "icons/ionic-android-refresh.svg" }}
+      </svg>
+      Neu starten
     </button>
     <p class="text-center text-xs text-stone-400 dark:text-stone-600">
       <a

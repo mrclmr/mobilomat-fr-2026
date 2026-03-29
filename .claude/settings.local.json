@@ -14,7 +14,10 @@
       "Bash(do echo:*)",
       "Bash(done)",
       "Bash(kill %1)",
-      "Bash(pkill -f \"hugo server\")"
+      "Bash(pkill -f \"hugo server\")",
+      "Bash(mv share.svg ionic-share.svg)",
+      "Bash(mv chevron-right.svg ionic-chevron-right.svg)",
+      "Bash(mv android-refresh.svg ionic-android-refresh.svg)"
     ]
   }
 }
