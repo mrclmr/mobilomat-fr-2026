@@ -6,7 +6,8 @@ Make these tools avaialbe in path:
 
 - NodeJS (see version in [package.json](package.json))
 - [Hugo](https://github.com/gohugoio/hugo)
-- [yamlfmt](https://github.com/google/yamlfmt) ([Go](https://go.dev/dl/) needed for installation)
+- [Go](https://go.dev/dl/)
+- [yamlfmt](https://github.com/google/yamlfmt) ( needed for installation)
   ```
   go install github.com/google/yamlfmt/cmd/yamlfmt@latest
   ```
