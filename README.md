@@ -28,11 +28,13 @@ make serve
 
 ## Todo
 
-- [ ] Add in Überblick the questions from the Kanidaten tab. Remove Kandidaten Tab. Rename Überblick to Kandidaten.
-      Make the > symbol that opens the questions better visible and show that is clickable.
-      Add to the > symbol in the new Kandidaten tab "Antworten d. Kandidaten/in"
-      Add to the > symbol in the Fragen tab "Antworten d. Kandidaten/innen"
+- [ ] Add in Überblick the questions from the Kandidierende tab. Remove Kandidierende Tab. Rename Überblick to Kandidierende.
+      Make the › symbol that opens the questions better visible and show that is clickable.
+      Add to the › symbol in the new Kandidierende tab "Antworten d. Kandidierenden". Add this below the progress bar.
+      Add to the › symbol in the Fragen tab "Antworten der Kandidierenden"
+      › should rotate if clicked. No JS, just Tailwind. Can you animate the appearing and disappearing content
 
+- [x] Make Ergebnis and Übereinstimmung mit Deinen Antworten bigger in wider than sm
 - [x] Rename inter.css to font.css
 - [x] The progress bar above questions show has thin separators to represent each space for an answer. The filled color of the progress bar represents the answer. The progress bar height should be increased
 - [x] Title "Mobil-O-Mat" can span over the full width without covering the girl. Increase the gap to the subtitle

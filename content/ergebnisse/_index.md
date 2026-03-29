@@ -1,4 +1,4 @@
 ---
-title: "Ergebnisse"
-layout: ergebnisse
+title: "Ergebnis"
+layout: ergebnis
 ---

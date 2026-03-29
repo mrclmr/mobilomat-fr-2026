@@ -2,7 +2,7 @@
 hugo.Data.questions }} {{ $q := index $questions $qi }} {{ $total := len
 $questions }} {{ $num := add $qi 1 }} {{ $isLast := eq $num $total }} {{
 $prevURL := cond (eq $qi 0) "/" (printf "/fragen/%d/" $qi) }} {{ $nextURL :=
-cond $isLast "/ergebnisse/" (printf "/fragen/%d/" (add $qi 2)) }}
+cond $isLast "/ergebnis/" (printf "/fragen/%d/" (add $qi 2)) }}
 
 <div class="flex flex-col">
   <div class="bg-vcd-green-tint px-4 pb-5 pt-4 dark:bg-vcd-green/10 sm:px-6">
