@@ -28,6 +28,26 @@
   }
 }
 
+@keyframes vote-fill {
+  from {
+    transform: translateX(-101%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes vote-glint {
+  from {
+    background-position: 160% 0;
+    opacity: 1;
+  }
+  to {
+    background-position: -20% 0;
+    opacity: 0;
+  }
+}
+
 @layer components {
   .card {
     @apply rounded-3xl border border-stone-200 bg-white p-5 shadow-sm dark:border-vcd-petrol/20 dark:bg-[#122e31];
@@ -47,43 +67,96 @@
 
   /* Unselected: plain white/border — color only appears on selection */
   .vote-btn {
-    @apply flex min-h-14 w-full cursor-pointer items-center gap-3 rounded-2xl border-2 px-5 py-4 text-left font-medium transition-all hover:-translate-y-0.5 hover:shadow-sm active:translate-y-0 active:shadow-none;
+    @apply flex min-h-14 w-full cursor-pointer items-center gap-3 rounded-2xl border-2 px-5 py-4 text-left font-medium transition-colors hover:-translate-y-0.5 hover:shadow-sm active:translate-y-0 active:shadow-none;
+    position: relative;
+    overflow: hidden;
   }
+  .vote-btn > * {
+    position: relative;
+    z-index: 1;
+  }
+  /* fill layer */
+  .vote-btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    transform: translateX(-101%);
+    z-index: 0;
+    border-radius: inherit;
+  }
+  .vote-btn:has(:checked)::before {
+    animation: vote-fill 220ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+  /* double-streak glint */
+  .vote-btn::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      105deg,
+      transparent 30%,
+      rgba(255, 255, 255, 0.55) 38%,
+      transparent 44%,
+      transparent 55%,
+      rgba(255, 255, 255, 0.3) 61%,
+      transparent 67%
+    );
+    background-size: 300% 100%;
+    background-position: 160% 0;
+    z-index: 2;
+    pointer-events: none;
+    opacity: 0;
+  }
+  .vote-btn:has(:checked)::after {
+    animation: vote-glint 420ms ease 180ms both;
+  }
+
   .vote-btn-pro {
     @apply border-stone-200 bg-white text-stone-500
            hover:border-vcd-green/50
            dark:border-vcd-petrol/20 dark:bg-[#122e31] dark:text-stone-400;
   }
-  .vote-btn-pro:has(:checked) {
-    @apply border-vcd-green bg-vcd-green/50 text-stone-800
-           dark:border-vcd-green/80 dark:bg-vcd-green/50 dark:text-stone-100;
+  .vote-btn-pro::before {
+    background: rgb(174 201 5 / 0.5);
   }
+  .vote-btn-pro:has(:checked) {
+    @apply border-vcd-green text-stone-800 dark:border-vcd-green/80 dark:text-stone-100;
+  }
+
   .vote-btn-neutral {
     @apply border-stone-200 bg-white text-stone-500
            hover:border-vcd-yellow/50
            dark:border-vcd-petrol/20 dark:bg-[#122e31] dark:text-stone-400;
   }
-  .vote-btn-neutral:has(:checked) {
-    @apply border-vcd-yellow bg-vcd-yellow/50 text-stone-800
-           dark:border-vcd-yellow/80 dark:bg-vcd-yellow/50 dark:text-stone-100;
+  .vote-btn-neutral::before {
+    background: rgb(245 194 0 / 0.5);
   }
+  .vote-btn-neutral:has(:checked) {
+    @apply border-vcd-yellow text-stone-800 dark:border-vcd-yellow/80 dark:text-stone-100;
+  }
+
   .vote-btn-contra {
     @apply border-stone-200 bg-white text-stone-500
            hover:border-vcd-red/50
            dark:border-vcd-petrol/20 dark:bg-[#122e31] dark:text-stone-400;
   }
-  .vote-btn-contra:has(:checked) {
-    @apply border-vcd-red bg-vcd-red/50 text-stone-800
-           dark:border-vcd-red/80 dark:bg-vcd-red/50 dark:text-stone-100;
+  .vote-btn-contra::before {
+    background: rgb(224 53 53 / 0.5);
   }
+  .vote-btn-contra:has(:checked) {
+    @apply border-vcd-red text-stone-800 dark:border-vcd-red/80 dark:text-stone-100;
+  }
+
   .vote-btn-skip {
     @apply border-stone-200 bg-white text-stone-500
            hover:border-stone-300
            dark:border-vcd-petrol/20 dark:bg-[#122e31] dark:text-stone-400;
   }
+  .vote-btn-skip::before {
+    background: rgb(120 113 108 / 0.25);
+  }
   .vote-btn-skip:has(:checked) {
-    @apply border-stone-400 bg-stone-100 text-stone-700
-           dark:border-stone-500 dark:bg-stone-700 dark:text-stone-200;
+    @apply border-stone-400 text-stone-700 dark:border-stone-500 dark:text-stone-200;
   }
 
   .tab {
