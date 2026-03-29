@@ -37,8 +37,19 @@
     </div>
     <div class="h-1.5 bg-vcd-green"></div>
     <div class="p-4 pt-8 sm:p-6 sm:pt-8">
-      <button onclick="startQuiz()" class="btn-primary w-full text-lg">
-        Los geht's →
+      <button
+        onclick="startQuiz()"
+        class="btn-primary flex w-full items-center justify-center gap-2 sm:text-xl cursor-pointer"
+      >
+        Los geht's
+        <svg
+          class="h-4 w-4 sm:h-5 sm:w-5"
+          viewBox="0 0 352 280.20001220703125"
+          fill="currentColor"
+          aria-hidden="true"
+        >
+          {{ partial "icon" "icons/ionic-arrow-right-c.svg" }}
+        </svg>
       </button>
       <div class="card mt-5">
         <p class="leading-relaxed text-stone-600 dark:text-stone-300">
