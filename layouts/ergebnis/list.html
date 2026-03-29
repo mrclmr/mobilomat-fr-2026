@@ -1,6 +1,7 @@
 {{ define "main" }} {{ $questions := hugo.Data.questions }} {{ $candidates :=
 (index $questions 0).stances }} {{ $icons := dict "1" "✓" "0" "○" "-1" "✗" }} {{
-$colors := dict "1" "pct-green" "0" "pct-amber" "-1" "pct-red" }}
+$colors := dict "1" "pct-green" "0" "pct-amber" "-1" "pct-red" }} {{ $badges :=
+dict "1" "vote-badge-pro" "0" "vote-badge-neutral" "-1" "vote-badge-contra" }}
 
 <div
   class="mx-auto flex min-h-screen max-w-lg sm:max-w-2xl flex-col p-4 sm:p-6"
@@ -90,31 +91,40 @@ $colors := dict "1" "pct-green" "0" "pct-amber" "-1" "pct-red" }}
               {{ range $qi, $q := $questions }} {{ $stance := index (where
               $q.stances "candidate" $c.candidate) 0 }} {{ $icon := index $icons
               (printf "%d" $stance.position) }} {{ $col := index $colors (printf
-              "%d" $stance.position) }}
+              "%d" $stance.position) }} {{ $badge := index $badges (printf "%d"
+              $stance.position) }}
               <div
                 data-qi="{{ $qi }}"
                 data-pos="{{ $stance.position }}"
                 class="border-b border-stone-100 py-2.5 last:border-0 dark:border-stone-700"
               >
-                <div class="flex items-baseline gap-2">
-                  <span class="shrink-0 font-bold {{ $col }}">{{ $icon }}</span>
-                  <span class="font-medium text-stone-800 dark:text-stone-200"
-                    >{{ add $qi 1 }}. {{ $q.short }}</span
-                  >
+                <div class="font-medium text-stone-800 dark:text-stone-200">
+                  {{ add $qi 1 }}. {{ $q.short }}
                 </div>
                 <p
                   class="mt-1 text-sm leading-relaxed text-stone-500 dark:text-stone-400"
                 >
-                  {{ $stance.opinion }}
+                  {{ $q.long }}
                 </p>
                 <div
-                  class="mt-1 flex items-center gap-1.5 text-sm text-stone-500 dark:text-stone-400"
+                  class="mt-1 mb-3 flex items-center gap-1.5 text-sm font-medium text-stone-700 dark:text-stone-300"
                 >
                   Deine Antwort:
                   <span class="user-answer-badge vote-badge" data-qi="{{ $qi }}"
                     >–</span
                   >
                 </div>
+                <div
+                  class="flex items-baseline gap-2 text-sm font-medium text-stone-700 dark:text-stone-300"
+                >
+                  <span>Antwort {{ $c.candidate }}:</span>
+                  <span class="vote-badge {{ $badge }}">{{ $icon }}</span>
+                </div>
+                <p
+                  class="mt-0.5 text-sm leading-relaxed text-stone-500 dark:text-stone-400"
+                >
+                  {{ $stance.opinion }}
+                </p>
               </div>
               {{ end }}
               <button
@@ -151,7 +161,7 @@ $colors := dict "1" "pct-green" "0" "pct-amber" "-1" "pct-red" }}
               {{ add $qi 1 }}. {{ $q.short }}
             </div>
             <div
-              class="mt-1 flex items-center gap-1.5 text-sm text-stone-500 dark:text-stone-400"
+              class="mt-1 flex items-center gap-1.5 text-sm font-medium text-stone-700 dark:text-stone-300"
             >
               Deine Antwort:
               <span class="user-answer vote-badge" data-qi="{{ $qi }}">–</span>
@@ -189,17 +199,17 @@ $colors := dict "1" "pct-green" "0" "pct-amber" "-1" "pct-red" }}
             </p>
             <hr class="border-stone-200 dark:border-stone-700" />
             {{ range sort $q.stances ".candidate" }} {{ $icon := index $icons
-            (printf "%d" .position) }} {{ $col := index $colors (printf "%d"
+            (printf "%d" .position) }} {{ $badge := index $badges (printf "%d"
             .position) }}
             <div
               class="border-b border-stone-100 py-2 last:border-0 dark:border-stone-700"
             >
-              <div class="flex items-baseline gap-2">
-                <span class="shrink-0 font-bold {{ $col }}">{{ $icon }}</span>
+              <div class="flex items-center gap-2">
                 <span
                   class="text-sm font-medium text-stone-700 dark:text-stone-300"
                   >{{ .candidate }}</span
                 >
+                <span class="vote-badge {{ $badge }}">{{ $icon }}</span>
               </div>
               <p
                 class="mt-1 text-sm leading-relaxed text-stone-500 dark:text-stone-400"
