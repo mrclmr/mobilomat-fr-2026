@@ -14,15 +14,14 @@
         class="w-full rotate-[-3deg] rounded-2xl bg-vcd-green/70 px-3 py-2 sm:px-5 sm:py-8 text-center backdrop-blur-sm"
       >
         <h1 class="text-lg font-black tracking-tight text-white sm:text-5xl">
-          {{ $meta.title1 }}
+          Mobil-O-Mat
         </h1>
       </div>
       <div
         class="w-full rotate-[2deg] rounded-2xl bg-vcd-petrol/70 px-3 py-2 sm:px-5 sm:py-8 text-center backdrop-blur-sm"
       >
         <p class="text-xs font-medium leading-snug text-white sm:text-lg">
-          {{ $meta.title2 | replaceRE "zur OB-Wahl" "<br />zur OB-Wahl" |
-          safeHTML }}
+          Teste jetzt, wer Deine Positionen zur OB-Wahl 2026 in Freiburg teilt!
         </p>
       </div>
     </div>
@@ -32,7 +31,12 @@
     <div class="w-full max-w-lg">
       <div class="card mb-5">
         <p class="leading-relaxed text-stone-600 dark:text-stone-300">
-          {{ $meta.description | safeHTML }}
+          Am 26. April 2026 finden in Freiburg die OB-Wahlen statt. Sie können
+          sich hier die Positionen der Kandidierenden anschauen und miteinander
+          vergleichen. Dies ist <strong>keine Wahlempfehlung</strong>, sondern
+          ein Informationsangebot zur Wahl! <br /><br />
+          Zur Auswahl stehen fünf Kandidierende mit unterschiedlichen Meinungen
+          zum Thema Mobilität.
         </p>
       </div>
       <button onclick="startQuiz()" class="btn-primary w-full text-lg">
