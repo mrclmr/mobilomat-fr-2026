@@ -26,6 +26,10 @@ npm install
 make serve
 ```
 
+## SVG Icons
+
+Icons found here: https://leungwensen.github.io/svg-icon/#ionic
+
 ## Todo
 
 - [x] Add in Überblick the questions from the Kandidierende tab. Remove Kandidierende Tab. Rename Überblick to Kandidierende.
