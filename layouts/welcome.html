@@ -1,38 +1,41 @@
 {{ define "main" }}
-<div class="flex min-h-screen flex-col">
+<div class="flex min-h-screen flex-col items-center sm:justify-center sm:p-8">
   <div
-    class="flex items-center justify-start overflow-hidden pl-10 pr-5 sm:pl-24 sm:pr-16"
-    style="
-      background-image: url(&quot;/vcd_background.jpg&quot;);
-      background-size: cover;
-      background-position: center;
-      aspect-ratio: 1318/840;
-    "
+    class="w-full max-w-lg sm:max-w-xl sm:overflow-hidden sm:rounded-3xl sm:border sm:border-stone-200 sm:shadow-sm dark:sm:border-stone-700 dark:sm:bg-[#122e31]"
   >
-    <div class="flex w-[55%] max-w-[55%] flex-col items-start gap-1 sm:gap-3">
-      <div
-        class="w-full rotate-[-3deg] rounded-2xl bg-vcd-green/70 px-3 py-2 sm:px-5 sm:py-8 text-center backdrop-blur-sm"
-      >
-        <h1 class="text-lg font-black tracking-tight text-white sm:text-5xl">
-          Mobil-O-Mat
-        </h1>
-      </div>
-      <div
-        class="w-full rotate-[2deg] rounded-2xl bg-vcd-petrol/70 px-3 py-2 sm:px-5 sm:py-8 text-center backdrop-blur-sm"
-      >
-        <p class="text-xs font-medium leading-snug text-white sm:text-lg">
-          Teste jetzt, wer Deine Positionen zur OB-Wahl 2026 in Freiburg teilt!
-        </p>
+    <div
+      class="flex items-center justify-start overflow-hidden pl-10 pr-5 sm:pl-24 sm:pr-16"
+      style="
+        background-image: url(&quot;/vcd_background.jpg&quot;);
+        background-size: cover;
+        background-position: center;
+        aspect-ratio: 1318/840;
+      "
+    >
+      <div class="flex w-[55%] max-w-[55%] flex-col items-start gap-1 sm:gap-3">
+        <div
+          class="w-full rotate-[-3deg] rounded-2xl bg-vcd-green/70 px-3 py-2 sm:px-5 sm:py-8 text-center backdrop-blur-sm"
+        >
+          <h1 class="text-lg font-black tracking-tight text-white sm:text-5xl">
+            Mobil-O-Mat
+          </h1>
+        </div>
+        <div
+          class="w-full rotate-[2deg] rounded-2xl bg-vcd-petrol/70 px-3 py-2 sm:px-5 sm:py-8 text-center backdrop-blur-sm"
+        >
+          <p class="text-xs font-medium leading-snug text-white sm:text-lg">
+            Teste jetzt, wer Deine Positionen zur OB-Wahl 2026 in Freiburg
+            teilt!
+          </p>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="h-1.5 bg-vcd-green"></div>
-  <div class="flex flex-1 justify-center p-4 pt-8 sm:p-6 sm:pt-8">
-    <div class="w-full max-w-lg">
+    <div class="h-1.5 bg-vcd-green"></div>
+    <div class="p-4 pt-8 sm:p-6 sm:pt-8">
       <div class="card mb-5">
         <p class="leading-relaxed text-stone-600 dark:text-stone-300">
-          Am 26. April 2026 finden in Freiburg die OB-Wahlen statt. Sie können
-          sich hier die Positionen der Kandidierenden anschauen und miteinander
+          Am 26. April 2026 finden in Freiburg die OB-Wahlen statt. Du kannst
+          Dir hier die Positionen der Kandidierenden anschauen und miteinander
           vergleichen. Dies ist <strong>keine Wahlempfehlung</strong>, sondern
           ein Informationsangebot zur Wahl! <br /><br />
           Zur Auswahl stehen fünf Kandidierende mit unterschiedlichen Meinungen
