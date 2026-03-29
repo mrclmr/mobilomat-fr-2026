@@ -28,6 +28,7 @@ make serve
 
 ## Todo
 
+- [ ] Add left and right empty areas to limit the height of title image when a wide browser window is used.
 - [ ] Percent numbers in results should have a gradient, between the predefined used colors red, yellow and green
 - [ ] "Ihre Antwort" -> "Deine Antwort"
 - [ ] Directly jump to next page after answer. Remove "Zurück" and "Weiter"
