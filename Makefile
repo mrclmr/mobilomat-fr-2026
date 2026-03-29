@@ -15,6 +15,7 @@ serve:
 	hugo server --noHTTPCache --bind 0.0.0.0 --baseURL http://localhost
 
 lint:
+	yamlfmt -lint -dstar **/*.{yaml,yml}
 	$(PRETTIER_CMD) --check
 
 format:
