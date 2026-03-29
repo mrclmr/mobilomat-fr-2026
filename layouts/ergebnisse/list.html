@@ -225,12 +225,14 @@ $candidates := hugo.Data.mobilomat.candidates }} {{ $icons := dict "1" "✓" "0"
     </button>
     <p class="text-center text-xs text-stone-400 dark:text-stone-600">
       <a
-        href="{{ hugo.Data.mobilomat.meta.imprintLink }}"
+        href="{{ site.Params.imprintURL }}"
         target="_blank"
         rel="noopener"
         class="hover:underline"
         >Impressum</a
       >
+      ·
+      <a href="/datenschutz/" class="hover:underline">Datenschutz</a>
     </p>
   </div>
 </div>

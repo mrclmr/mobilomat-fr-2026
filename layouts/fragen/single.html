@@ -64,12 +64,14 @@ cond $isLast "/ergebnisse/" (printf "/fragen/%d/" (add $qi 2)) }}
 
     <p class="mt-6 text-center text-xs text-stone-400 dark:text-stone-600">
       <a
-        href="{{ hugo.Data.mobilomat.meta.imprintLink }}"
+        href="{{ site.Params.imprintURL }}"
         target="_blank"
         rel="noopener"
         class="hover:underline"
         >Impressum</a
       >
+      ·
+      <a href="/datenschutz/" class="hover:underline">Datenschutz</a>
     </p>
   </div>
 </div>

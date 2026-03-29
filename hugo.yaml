@@ -11,3 +11,5 @@ markup:
   highlight:
     noClasses: false
 enableRobotsTXT: false
+params:
+  imprintURL: "https://bw.vcd.org/der-vcd-in-bw/suedbaden/impressum"

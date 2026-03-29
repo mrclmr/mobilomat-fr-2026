@@ -29,7 +29,6 @@ make serve
 ## Todo
 
 - [ ] Disclaimer updaten, Erwatungsmanagement
-- [ ] Datenschutz Hinweise, es wird eine veränderte Versin von https://chormunity-freiburg.de/datenschutzerklaerung/ geben
 - [ ] Add left and right empty areas to limit the height of title image when a wide browser window is used.
 - [ ] Percent numbers in results should have a gradient, between the predefined used colors red, yellow and green
 - [ ] "Ihre Antwort" -> "Deine Antwort"
@@ -40,3 +39,5 @@ make serve
 - [ ] Title "Mobil-O-Mat" can span over the full width without covering the girl. Increase the gap to the subtitle
 - [ ] Below the progress bar show dots with the height of the progress bar. These dots will get the color of the answers
 - [ ] The progress bar above questions show has thin separators to represent each space for an answer. The filled color of the progress bar represents the answer. The progress bar height should be increased
+
+- [x] Datenschutz Hinweise, es wird eine veränderte Versin von https://chormunity-freiburg.de/datenschutzerklaerung/ geben

@@ -1,4 +1,4 @@
-{{ define "main" }} {{ $meta := hugo.Data.mobilomat.meta }}
+{{ define "main" }}
 <div class="flex min-h-screen flex-col">
   <div
     class="flex items-center justify-start overflow-hidden pl-10 pr-5 sm:pl-24 sm:pr-16"
@@ -44,12 +44,14 @@
       </button>
       <p class="mt-6 text-center text-xs text-stone-400 dark:text-stone-600">
         <a
-          href="{{ $meta.imprintLink }}"
+          href="{{ site.Params.imprintURL }}"
           target="_blank"
           rel="noopener"
           class="hover:underline"
           >Impressum</a
         >
+        ·
+        <a href="/datenschutz/" class="hover:underline">Datenschutz</a>
       </p>
     </div>
   </div>
