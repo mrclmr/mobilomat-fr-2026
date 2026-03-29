@@ -50,19 +50,12 @@ cond $isLast "/ergebnisse/" (printf "/fragen/%d/" (add $qi 2)) }}
         <span class="w-7 shrink-0 text-xl">✗</span><span>Stimme nicht zu</span>
       </label>
       <label class="vote-btn vote-btn-skip">
-        <input type="radio" name="vote" value="99" class="hidden" checked />
+        <input type="radio" name="vote" value="99" class="hidden" />
         <span class="w-7 shrink-0 text-lg">→</span><span>Überspringen</span>
       </label>
     </div>
 
-    <div class="flex gap-3">
-      <a href="{{ $prevURL }}" class="nav-btn flex-1 text-center">← Zurück</a>
-      <a href="{{ $nextURL }}" class="nav-btn-primary flex-1 text-center">
-        {{ if $isLast }}Ergebnisse →{{ else }}Weiter →{{ end }}
-      </a>
-    </div>
-
-    <p class="mt-6 text-center text-xs text-stone-400 dark:text-stone-600">
+    <p class="mt-2 text-center text-xs text-stone-400 dark:text-stone-600">
       <a
         href="{{ site.Params.imprintURL }}"
         target="_blank"
@@ -84,21 +77,29 @@ cond $isLast "/ergebnisse/" (printf "/fragen/%d/" (add $qi 2)) }}
     try { return JSON.parse(localStorage.getItem(KEY)) || []; } catch { return []; }
   }
 
-  // Restore saved answer, or default to skipped
+  // Show subtle hint for previously saved answer
   const a = answers();
-  if (a[QI] == null) {
-    a[QI] = 99;
-    localStorage.setItem(KEY, JSON.stringify(a));
-  } else {
-    document.querySelector(`[name="vote"][value="${a[QI]}"]`).checked = true;
+  if (a[QI] != null) {
+    const prev = document.querySelector(`[name="vote"][value="${a[QI]}"]`);
+    if (prev) {
+      const label = prev.closest("label");
+      label.classList.add("vote-btn-prev");
+      const hint = document.createElement("span");
+      hint.textContent = "Zuletzt gewählt";
+      hint.className = "ml-auto text-xs text-stone-400 dark:text-stone-500";
+      label.appendChild(hint);
+    }
   }
 
-  // Save on change
+  const NEXT_URL = "{{ $nextURL }}";
+
+  // Save on change and navigate to next question
   document.addEventListener("change", (e) => {
     if (e.target.name !== "vote") return;
     const ans = answers();
     ans[QI] = Number(e.target.value);
     localStorage.setItem(KEY, JSON.stringify(ans));
+    setTimeout(() => { window.location.href = NEXT_URL; }, 300);
   });
 </script>
 {{ end }}
