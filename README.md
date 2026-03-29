@@ -31,7 +31,6 @@ make serve
 - [ ] Disclaimer updaten, Erwatungsmanagement
 - [ ] Add left and right empty areas to limit the height of title image when a wide browser window is used.
 - [ ] Percent numbers in results should have a gradient, between the predefined used colors red, yellow and green
-- [ ] "Ihre Antwort" -> "Deine Antwort"
 - [ ] Directly jump to next page after answer. Remove "Zurück" and "Weiter"
 - [ ] Don't preselect "Überspringen". Allow only "Weiter" if answer is selected
 - [ ] Link in results to return to question
@@ -40,4 +39,5 @@ make serve
 - [ ] Below the progress bar show dots with the height of the progress bar. These dots will get the color of the answers
 - [ ] The progress bar above questions show has thin separators to represent each space for an answer. The filled color of the progress bar represents the answer. The progress bar height should be increased
 
+- [x] "Ihre Antwort" -> "Deine Antwort"
 - [x] Datenschutz Hinweise, es wird eine veränderte Versin von https://chormunity-freiburg.de/datenschutzerklaerung/ geben
