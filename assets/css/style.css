@@ -214,13 +214,13 @@
     @apply inline-flex items-center gap-1 rounded-full border-2 border-stone-200 bg-stone-100 px-2 py-0.5 text-xs font-medium text-stone-500 dark:border-stone-700 dark:bg-stone-800 dark:text-stone-400;
   }
   .vote-badge-pro {
-    @apply border-vcd-green bg-vcd-green-tint text-stone-800 dark:border-vcd-green/60 dark:bg-vcd-green/20 dark:text-stone-100;
+    @apply border-vcd-green bg-vcd-green/50 text-stone-800 dark:border-vcd-green/80 dark:bg-vcd-green/50 dark:text-stone-100;
   }
   .vote-badge-neutral {
-    @apply border-vcd-yellow bg-vcd-yellow/20 text-stone-800 dark:border-vcd-yellow/60 dark:bg-vcd-yellow/20 dark:text-stone-100;
+    @apply border-vcd-yellow bg-vcd-yellow/50 text-stone-800 dark:border-vcd-yellow/80 dark:bg-vcd-yellow/50 dark:text-stone-100;
   }
   .vote-badge-contra {
-    @apply border-vcd-orange bg-vcd-orange-tint text-stone-800 dark:border-vcd-orange/60 dark:bg-vcd-orange/20 dark:text-stone-100;
+    @apply border-vcd-red bg-vcd-red/50 text-stone-800 dark:border-vcd-red/80 dark:bg-vcd-red/50 dark:text-stone-100;
   }
   .vote-badge-skip {
     @apply border-stone-400 bg-stone-200 text-stone-800 dark:border-stone-500 dark:bg-stone-700 dark:text-stone-200;
