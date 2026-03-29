@@ -28,6 +28,7 @@ make serve
 
 ## Todo
 
+- [ ] Datenschutz Hinweise
 - [ ] Add left and right empty areas to limit the height of title image when a wide browser window is used.
 - [ ] Percent numbers in results should have a gradient, between the predefined used colors red, yellow and green
 - [ ] "Ihre Antwort" -> "Deine Antwort"
