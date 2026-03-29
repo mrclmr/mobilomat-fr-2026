@@ -9,7 +9,10 @@
       "Bash(brew install:*)",
       "Bash(pdftotext --version)",
       "Bash(pdftotext:*)",
-      "Bash(python3:*)"
+      "Bash(python3:*)",
+      "Bash(git checkout:*)",
+      "Bash(identify /Users/meyermarcel/projects/mobilomat/mobilomat-fr-2026/static/vcd_background.jpg)",
+      "Bash(sips -g pixelWidth -g pixelHeight /Users/meyermarcel/projects/mobilomat/mobilomat-fr-2026/static/vcd_background.jpg)"
     ]
   }
 }

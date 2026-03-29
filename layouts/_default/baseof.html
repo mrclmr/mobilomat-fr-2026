@@ -31,10 +31,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- For "Pull-to-Refresh" in Safari background color. -->
-    <!-- 3 points darker than bg-stone-900: #141110, bg-stone-900: #1c1917, bg-stone-950: #0c0a09 -->
     <meta
       name="theme-color"
-      content="#141110"
+      content="#071a1c"
       media="(prefers-color-scheme: dark)"
     />
     <!-- VCD Petrol tint background -->
@@ -46,7 +45,7 @@
     <title>{{ .Title }}</title>
   </head>
   <body
-    class="min-h-screen bg-vcd-petrol-tint text-stone-800 antialiased selection:bg-vcd-petrol selection:text-white dark:bg-stone-900 dark:text-stone-400 dark:selection:bg-vcd-petrol"
+    class="min-h-screen bg-vcd-petrol-tint text-stone-800 antialiased selection:bg-vcd-petrol selection:text-white dark:bg-[#0d2224] dark:text-stone-400 dark:selection:bg-vcd-petrol"
   >
     {{ block "main" . }} {{ .Content }} {{ end }}
   </body>
