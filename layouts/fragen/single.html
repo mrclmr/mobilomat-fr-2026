@@ -24,10 +24,7 @@ cond $isLast "/ergebnisse/" (printf "/fragen/%d/" (add $qi 2)) }}
 
   <div class="mx-auto w-full max-w-lg p-4 sm:p-6">
     <div class="card mb-5">
-      <h2 class="mb-1">{{ $q.short }}</h2>
-      <p class="mb-3 text-sm text-stone-400 dark:text-stone-500">
-        Frage {{ $num }}
-      </p>
+      <h2 class="mb-3">{{ $num }}. {{ $q.short }}</h2>
       <p class="leading-relaxed text-stone-600 dark:text-stone-300">
         {{ $q.long }}
       </p>
