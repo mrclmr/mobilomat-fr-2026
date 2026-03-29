@@ -211,7 +211,7 @@
   }
 
   .vote-badge {
-    @apply inline-flex items-center gap-1 rounded-full border-2 border-stone-200 bg-stone-100 px-2 py-0.5 text-xs font-medium text-stone-500 dark:border-stone-700 dark:bg-stone-800 dark:text-stone-400;
+    @apply inline-flex items-start gap-1 rounded-full border-2 border-stone-200 bg-stone-100 px-2 py-0.5 text-xs font-medium text-stone-500 dark:border-stone-700 dark:bg-stone-800 dark:text-stone-400;
   }
   .vote-badge-pro {
     @apply border-vcd-green bg-vcd-green/50 text-stone-800 dark:border-vcd-green/80 dark:bg-vcd-green/50 dark:text-stone-100;

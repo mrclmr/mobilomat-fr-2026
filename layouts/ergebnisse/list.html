@@ -262,9 +262,9 @@ $candidates := hugo.Data.mobilomat.candidates }} {{ $icons := dict "1" "✓" "0"
   function setBadge(el, ans) {
     el.classList.remove(...BADGE_VARIANTS);
     if (ans == null) {
-      el.textContent = "–";
+      el.innerHTML = "–";
     } else {
-      el.textContent = (ANS_ICONS[ans] ?? "") + " " + (POS_LABELS[ans] ?? "–");
+      el.innerHTML = `<span style="flex-shrink:0;align-self:center">${ANS_ICONS[ans] ?? ""}</span><span>${POS_LABELS[ans] ?? "–"}</span>`;
       el.classList.add(ANS_BADGE_CLASS[ans] ?? "");
     }
   }
