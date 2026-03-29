@@ -28,16 +28,17 @@ make serve
 
 ## Todo
 
-- [ ] Disclaimer updaten, Erwatungsmanagement
 - [ ] Percent numbers in results should have a gradient, between the predefined used colors red, yellow and green
-- [ ] Link in results to return to question
-- [ ] In results use same vote badges for candidates as your vote badge
-- [ ] Title "Mobil-O-Mat" can span over the full width without covering the girl. Increase the gap to the subtitle
-- [ ] Below the progress bar show dots with the height of the progress bar. These dots will get the color of the answers
+- [ ] Link in results to return to question?
 - [ ] The progress bar above questions show has thin separators to represent each space for an answer. The filled color of the progress bar represents the answer. The progress bar height should be increased
 
+- [x] Title "Mobil-O-Mat" can span over the full width without covering the girl. Increase the gap to the subtitle
+- [x] Disclaimer updaten, Erwatungsmanagement
 - [x] Remove "Weiter" und "Zurück" Buttons. If an answer is selected go to next page
 - [x] Directly jump to next page after answer. Remove "Zurück" and "Weiter"
 - [x] Add left and right empty areas to the page to limit the height of title image when a wide browser window is used. In a wider browser the image takes a lot of space
 - [x] "Ihre Antwort" -> "Deine Antwort"
 - [x] Datenschutz Hinweise, es wird eine veränderte Versin von https://chormunity-freiburg.de/datenschutzerklaerung/ geben
+
+- [ ] ~~In results use same vote badges for candidates as your vote badge~~
+- [ ] ~~Below the progress bar show dots with the height of the progress bar. These dots will get the color of the answers~~
