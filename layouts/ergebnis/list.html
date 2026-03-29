@@ -96,30 +96,24 @@ $colors := dict "1" "pct-green" "0" "pct-amber" "-1" "pct-red" }}
                 data-pos="{{ $stance.position }}"
                 class="border-b border-stone-100 py-2.5 last:border-0 dark:border-stone-700"
               >
-                <div class="flex items-start gap-2">
-                  <span class="mt-0.5 w-5 shrink-0 font-bold {{ $col }}"
-                    >{{ $icon }}</span
+                <div class="flex items-baseline gap-2">
+                  <span class="shrink-0 font-bold {{ $col }}">{{ $icon }}</span>
+                  <span class="font-medium text-stone-800 dark:text-stone-200"
+                    >{{ add $qi 1 }}. {{ $q.short }}</span
                   >
-                  <div class="min-w-0 flex-grow">
-                    <div class="font-medium text-stone-800 dark:text-stone-200">
-                      {{ add $qi 1 }}. {{ $q.short }}
-                    </div>
-                    <p
-                      class="text-sm leading-relaxed text-stone-500 dark:text-stone-400"
-                    >
-                      {{ $stance.opinion }}
-                    </p>
-                    <div
-                      class="mt-1 flex items-center gap-1.5 text-sm text-stone-500 dark:text-stone-400"
-                    >
-                      Deine Antwort:
-                      <span
-                        class="user-answer-badge vote-badge"
-                        data-qi="{{ $qi }}"
-                        >–</span
-                      >
-                    </div>
-                  </div>
+                </div>
+                <p
+                  class="mt-1 text-sm leading-relaxed text-stone-500 dark:text-stone-400"
+                >
+                  {{ $stance.opinion }}
+                </p>
+                <div
+                  class="mt-1 flex items-center gap-1.5 text-sm text-stone-500 dark:text-stone-400"
+                >
+                  Deine Antwort:
+                  <span class="user-answer-badge vote-badge" data-qi="{{ $qi }}"
+                    >–</span
+                  >
                 </div>
               </div>
               {{ end }}
@@ -193,26 +187,25 @@ $colors := dict "1" "pct-green" "0" "pct-amber" "-1" "pct-red" }}
             >
               {{ $q.long }}
             </p>
+            <hr class="border-stone-200 dark:border-stone-700" />
             {{ range sort $q.stances ".candidate" }} {{ $icon := index $icons
             (printf "%d" .position) }} {{ $col := index $colors (printf "%d"
             .position) }}
             <div
               class="border-b border-stone-100 py-2 last:border-0 dark:border-stone-700"
             >
-              <div class="flex items-start gap-2">
-                <span class="mt-0.5 w-5 shrink-0 font-bold {{ $col }}"
-                  >{{ $icon }}</span
+              <div class="flex items-baseline gap-2">
+                <span class="shrink-0 font-bold {{ $col }}">{{ $icon }}</span>
+                <span
+                  class="text-sm font-medium text-stone-700 dark:text-stone-300"
+                  >{{ .candidate }}</span
                 >
-                <div class="min-w-0">
-                  <span
-                    class="text-sm font-medium text-stone-700 dark:text-stone-300"
-                    >{{ .candidate }}:</span
-                  >
-                  <span class="ml-1 text-sm text-stone-500 dark:text-stone-400"
-                    >{{ .opinion }}</span
-                  >
-                </div>
               </div>
+              <p
+                class="mt-1 text-sm leading-relaxed text-stone-500 dark:text-stone-400"
+              >
+                {{ .opinion }}
+              </p>
             </div>
             {{ end }}
             <button
