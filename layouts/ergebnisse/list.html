@@ -335,10 +335,7 @@ $colors := dict "1" "pct-green" "0" "pct-amber" "-1" "pct-red" }}
   function updateParties(results) {
     const container = document.getElementById("parties-cards");
     const answers = loadAnswers();
-    const sorted = [...results].sort((a, b) =>
-      a.name.localeCompare(b.name, "de"),
-    );
-    sorted.forEach((r) => {
+    results.forEach((r) => {
       const card = container.querySelector(`[data-candidate="${r.name}"]`);
       const pctLabel = card.querySelector(".pct-label");
       pctLabel.textContent = r.pct + "%";
