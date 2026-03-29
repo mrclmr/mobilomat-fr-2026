@@ -4,15 +4,15 @@
       "Bash(hugo version:*)",
       "Bash(hugo:*)",
       "Bash(make format:*)",
+      "Bash(make lint:*)",
       "Bash(qrtool encode:*)",
-      "Bash(find /Users/meyermarcel/projects/mobilomat/mobilomat-fr-2026 -maxdepth 2 -type d ! -path */node_modules* ! -path */.git/* ! -path */.idea/*)",
       "Bash(brew install:*)",
       "Bash(pdftotext --version)",
       "Bash(pdftotext:*)",
-      "Bash(python3:*)",
       "Bash(git checkout:*)",
-      "Bash(identify /Users/meyermarcel/projects/mobilomat/mobilomat-fr-2026/static/vcd_background.jpg)",
-      "Bash(sips -g pixelWidth -g pixelHeight /Users/meyermarcel/projects/mobilomat/mobilomat-fr-2026/static/vcd_background.jpg)"
+      "Bash(for f:*)",
+      "Bash(do echo:*)",
+      "Bash(done)"
     ]
   }
 }

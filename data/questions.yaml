@@ -1,0 +1,270 @@
+- short: "Investitionen"
+  long: "Die jährlichen städtischen Investitionen für den Fuß- und Radverkehr sollen um den Faktor 2-3 erhöht werden, so dass sie dann ungefähr dem Niveau von Kopenhagen oder Tübingen (2025) entsprechen."
+  stances:
+    - candidate: "Monika Stein"
+      position: 1
+      opinion: "Die jährlichen Investitionen in den Radverkehr waren in den letzten Jahren in Freiburg leider leicht rückläufig. Ich will einen neuen Push für die Verkehrswende!"
+    - candidate: "Dejan Mihajlović"
+      position: 1
+      opinion: "Eine Stadt, die Klimaschutz ernst nimmt, muss sich in die Richtung entwickeln. Hier ist es wichtig, Menschen ausreichend zu informieren und zu beteiligen, wie und wo konkret das Geld investiert wird."
+    - candidate: "Florian Braune"
+      position: 1
+      opinion: "Wir brauchen bessere Rad- und Fußwege. Es sollte aber nicht immer das Auto diskriminiert werden."
+    - candidate: "Martin Borgmann"
+      position: 1
+      opinion: "Ich gehe einen Schritt weiter: Statt Faktor 2-3 nehmen wir den Exponenten 2-3!"
+    - candidate: "Martin Horn"
+      position: 0
+      opinion: "Zahlengrundlage nicht nachvollziehbar. Freiburg hat in 5 Jahren (2021-2025) 27 Mio. € für Radverkehr ausgegeben! Kluge Konzepte müssen zudem nicht teuer sein z.B. Fahrradstraßen mit Bevorrechtigung."
+- short: "Kinder im Verkehr"
+  long: "Die Sicherheit von Kinder, die im Straßenverkehr zu Fuß oder mit dem Rad unterwegs sind hat höchste Priorität, auch wenn dadurch der Autoverkehr Nachteile hat."
+  stances:
+    - candidate: "Monika Stein"
+      position: 1
+      opinion: "Wir müssen Mobilitätskonzepte verwirklichen, die für alle funktionieren, also Kinder aber auch Menschen mit Behinderung oder ältere Menschen. Für Kinder ist der Schulweg besonders wichtig, hier möchte ich besonders das Instrument der Schulstraßen und -Zonen intensiv nutzen."
+    - candidate: "Dejan Mihajlović"
+      position: 1
+      opinion: "Die Sicherheit von jungen Menschen im Straßenverkehr hat immer höchste Priorität: gegen Auto- wie auch Radverkehr. Daran gibt es nichts abzuwägen."
+    - candidate: "Florian Braune"
+      position: 1
+      opinion: "Die Sicherheit von Kindern im Verkehr ist sehr wichtig. Die Kinder müssen aber auch lernen aufzupassen."
+    - candidate: "Martin Borgmann"
+      position: 1
+      opinion: "Kinder sind die Zukunft, Autos sind die Vergangenheit. Wer das verwechselt, muss vielleicht nochmal auf dem Schulweg üben."
+    - candidate: "Martin Horn"
+      position: 1
+      opinion: "Für mich ein Herzensanliegen. Ich befürworte Maßnahmen, die zu mehr Sicherheit führen, z.B. Schulstraßen und -zonen. Eine zusätzliche Koordinationsstelle soll für eine raschere Umsetzung sorgen."
+- short: "Dreisamboulevard"
+  long: "Der Dreisamboulevard ist auch ohne Stadttunnel möglich. Freiburg soll sich beim Bund dafür einsetzen, dass die hunderte Millionen Euro Tunnel-Budget direkt in die regionale Verkehrswende eingesetzt werden."
+  stances:
+    - candidate: "Monika Stein"
+      position: 1
+      opinion: "Ich sehe das Projekt Stadttunnel seit jeher kritisch. Als Oberbürgermeisterin werde ich jedoch selbstverständlich die aktuelle und zukünftige Beschlusslage des Gemeinderates hierzu umsetzen."
+    - candidate: "Dejan Mihajlović"
+      position: 0
+      opinion: "Teile VCD-Kritik: Mehr Tunnel = mehr Autos. Status quo ist aber untragbar. Habe keine Systemkenntnisse, ob Budget umgewidmet werden kann. Deshalb: max. Oberflächenentlastung, mehr Rad, besserer ÖPNV."
+    - candidate: "Florian Braune"
+      position: -1
+      opinion: "Wir brauchen den Stadttunnel."
+    - candidate: "Martin Borgmann"
+      position: -1
+      opinion: "Wir brauchen den Tunnel als erschwinglichen Wohnraum."
+    - candidate: "Martin Horn"
+      position: -1
+      opinion: "Ein Dreisamboulevard ist nur mit dem Stadttunnel machbar. Mehr kommunale Mitsprache bei Bundesmittel für Verkehrsprojekte unterstütze ich."
+- short: "Fahrradparken"
+  long: "Freiburg soll ein flächendeckendes Angebot an wettergeschützten Fahrradstellflächen schaffen. Dazu sollen auch bestehende Autoparkhäuser ganz oder teilweise umgestaltet werden."
+  stances:
+    - candidate: "Monika Stein"
+      position: 1
+      opinion: "Freiburg braucht dringend mehr Fahrradparkplätze und die Autoparkhäuser in der Innenstadt sind schon heute nicht vollständig ausgelastet. Deshalb möchte ich Umnutzung aktiv fördern."
+    - candidate: "Dejan Mihajlović"
+      position: 1
+      opinion: "Nicht jedes Parkhaus eignet sich zur Umnutzung. Umgestaltung dort, wo sie den größten Effekt hat."
+    - candidate: "Florian Braune"
+      position: 1
+      opinion: "Es braucht ein automatisiertes Fahrradparkhaus in der Innenstadt, damit auch teure Räder und Kleidung sicher aufbewahrt sind. Das muss nicht in Autoparkhäuser sondern als Ergänzung."
+    - candidate: "Martin Borgmann"
+      position: 1
+      opinion: "Ohne Autos wird man unglaublich viel Raum gewinnen, sodass noch Platz für ein Dokuzentrum für den Individualverkehr bleibt!"
+    - candidate: "Martin Horn"
+      position: 1
+      opinion: "Freiburg hat bereits viele Fahrradabstellmöglichkeiten. Der nächste Schritt ist Wetterschutz. Ich möchte, dass die Möglichkeit dafür Autoparkhäuser zu nutzen, geprüft wird."
+- short: "Autofreie Rempartstraße"
+  long: "Die Rempartstraße soll im Bereich vor der Mensa spätestens 2028 autofrei sein."
+  stances:
+    - candidate: "Monika Stein"
+      position: 1
+      opinion: "Die Rempartstrasse muss so schnell wie möglich zu einer autofreien Zone umgestaltet werden. Hierbei muss aber auch der Zeitplan zum Fernwärmeeinbau beachtet werden, um die Baustellenanzahl und -kosten gering zu halten."
+    - candidate: "Dejan Mihajlović"
+      position: 1
+      opinion: "Es gibt viele sinnvolle Argumente für diese Maßnahme. Auch hier müssen Freiburger*innen vorab gut informiert und beteiligt werden."
+    - candidate: "Florian Braune"
+      position: 1
+      opinion: "Leider seit 30 Jahren nicht möglich."
+    - candidate: "Martin Borgmann"
+      position: 1
+      opinion: "Freiburg kann mehr, das geht auch schon 2027!"
+    - candidate: "Martin Horn"
+      position: 1
+      opinion: "Unstrittig: In der Rempartstr sollen Fuß und Radverkehr mehr Raum bekommen. Aber es braucht ein weitergefasstes Verkehrskonzept, welches auch mögliche Rettungswege und das Sedanviertel mit einbezieht."
+- short: "Anbindung an die Region"
+  long: "Freiburg soll durch ein dichtes Netz aus Schnellbuslinien mit den Umlandgemeinden und beliebten Ausflugszielen verbunden werden."
+  stances:
+    - candidate: "Monika Stein"
+      position: 1
+      opinion: "Dort, wo die Bahn nicht ausgebaut werden kann, sollen in Zusammenarbeit mit den Umlandgemeinden Schnellbuslinien entstehen. Außerdem muss der Tuniberg besser angebunden werden durch solche Linien."
+    - candidate: "Dejan Mihajlović"
+      position: 1
+      opinion: "Meines aktuellen Wissens nach geht das nur in Zusammenarbeit mit dem Landkreis und dem RVF, was ich anstreben würde."
+    - candidate: "Florian Braune"
+      position: 1
+      opinion: ""
+    - candidate: "Martin Borgmann"
+      position: 1
+      opinion: "Wir sollten nicht nur an morgen, sondern auch an übermorgen denken und bereits die Infrastruktur für Hypertubes bauen."
+    - candidate: "Martin Horn"
+      position: 1
+      opinion: "Primär muss es darum gehen, die Breisgau-S-Bahn weiter auszubauen (15 Min-Takt) und dort wo es keine S-Bahn gibt durch Regionalbusse zu ergänzen."
+- short: "Parkgebühren"
+  long: "Für große Autos sollen deutlich mehr Parkgebühren anfallen als für kleine Autos."
+  stances:
+    - candidate: "Monika Stein"
+      position: 1
+      opinion: "Eine Staffelung der Anwohnerparkgebühren ist überfällig und darüber hinaus auch sozial gerechter als die aktuelle Regelung. Ich werde alle rechtlichen Möglichkeiten nutzen um eine Staffelung einzuführen."
+    - candidate: "Dejan Mihajlović"
+      position: 0
+      opinion: "Unklar, ob rechtlich möglich. (In Paris ging es ums Fahrzeuggewicht, nicht -größe und nicht für Anwohner*innen, Handwerker*innen oder Pflegedienste.) Hier fehlen Daten für eine seriöse Einordnung."
+    - candidate: "Florian Braune"
+      position: -1
+      opinion: "Trifft vor allem Familien mit vielen Kindern."
+    - candidate: "Martin Borgmann"
+      position: 1
+      opinion: "Logische Konsequenz aus dem Mehr an Belastung der Straßen und Umwelt."
+    - candidate: "Martin Horn"
+      position: -1
+      opinion: "Weniger Verwaltungsaufwand! Es gibt noch keine praktikable digitale Lösung. Natürlich müssen soziale Aspekte eine Rolle spielen z.B. kinderreiche Familien, die auf ein größeres Auto angewiesen sind."
+- short: "Flächengerechtigkeit"
+  long: "Die Stadt soll öffentliche Autoparkplätze deutlich zurückbauen, um mehr öffentlichen Straßenraum für Entsiegelung und Begegnungsflächen zu gewinnen."
+  stances:
+    - candidate: "Monika Stein"
+      position: 1
+      opinion: "Ich stehe für konsequente Flächengerechtigkeit im öffentlichen Raum. An vielen Stellen in unserer Stadt können grüne Begegnungsorte entstehen, wenn wir hier mehr tun. Gleichzeitig leisten wir damit einen wichtigen Beitrag zur Klimaanpassung."
+    - candidate: "Dejan Mihajlović"
+      position: 1
+      opinion: "Öffentlicher Raum gehört allen und muss daher für/mit alle/n ausgehandelt werden. Es fehlt an Begegnungsräumen. Soziale Frage hier im Blick behalten. Bürger*innenbeteiligung ist wichtig."
+    - candidate: "Florian Braune"
+      position: -1
+      opinion: "Grds. Ja. Aber für viele Menschen (die nicht gerade in der Wiehre wohnen) ist das Auto ein wichtiges Mobilitätsmittel. Erst wenn es Alternativen für alle gibt."
+    - candidate: "Martin Borgmann"
+      position: 1
+      opinion: "Es ist wirklich unfassbar wie viel Fläche parkende Autos einnehmen. Viel Platz für Flunkyball."
+    - candidate: "Martin Horn"
+      position: 1
+      opinion: "Es geht nicht nur um Parkplätze. Der öffentliche Straßenraum wird in Freiburg bereits neu verteilt: mehr Platz für Fuß-/Radverkehr und Entsiegelung für Klimaschutz."
+- short: "Gehwegparken"
+  long: "Zum Schutz von Kindern und Menschen mit Behinderung soll die Stadt konsequent gegen Gehwegparken vorgehen, auch wenn dadurch Parkplätze im öffentlichen Raum wegfallen."
+  stances:
+    - candidate: "Monika Stein"
+      position: 1
+      opinion: "Ja, ich will eine Mobilitätspolitik, die insbesondere die vulnerabelsten Verkehrsteilnehmer*innen schützt."
+    - candidate: "Dejan Mihajlović"
+      position: 1
+      opinion: "Meines Wissens nach ist das bestehende rechtliche Pflicht und Praxis."
+    - candidate: "Florian Braune"
+      position: 0
+      opinion: "Ordnungswidrigkeiten sollen nur dann verfolgt werden, wenn auch eine tatsächliche Störung gegeben ist."
+    - candidate: "Martin Borgmann"
+      position: 1
+      opinion: "Wenn es um barrierefreie Wege geht, sind parkende Autos wohl die schlimmste Barriere, die man sich vorstellen kann."
+    - candidate: "Martin Horn"
+      position: 1
+      opinion: "Die Kontrolle wurde bereits in den letzten Jahren deutlich verschärft. Stadtteil für Stadtteil wird die Parkierung neu geordnet. Die Anwohner*innen werden eingebunden. Beteiligung braucht Zeit."
+- short: "City-Maut"
+  long: "Freiburg soll eine City-Maut nach dem Vorbild von London und Paris einführen."
+  stances:
+    - candidate: "Monika Stein"
+      position: -1
+      opinion: "Ich denke nicht dass die City-Maut das richtige Instrument ist. Sobald eine sozial vertretbare Regelung durch das Land ermöglicht wird, möchte ich den Mobilitätspass einführen."
+    - candidate: "Dejan Mihajlović"
+      position: -1
+      opinion: "Meines Wissens ist das in Deutschland rechtlich nicht möglich."
+    - candidate: "Florian Braune"
+      position: -1
+      opinion: "Auf keinen Fall. Freiburg ist zwar schöner aber nicht London oder Paris."
+    - candidate: "Martin Borgmann"
+      position: 1
+      opinion: "Dem Vorbild Londons folgend, sollten wir auch den Linksverkehr einführen (Fahrräder fahren weiterhin rechts)."
+    - candidate: "Martin Horn"
+      position: 0
+      opinion: "Ohne gesetzliche Grundlage können Städte in Deutschland keine Citymaut einführen. Städte sollten diese Möglichkeit erhalten um den Ausbau des ÖPNV zu finanzieren."
+- short: "Schlossbergring"
+  long: "Die östliche Hälfte des Schlossbergrings soll zukünftig vollständig dem Fuß- und Radverkehr zur Verfügung stehen."
+  stances:
+    - candidate: "Monika Stein"
+      position: 0
+      opinion: "Aktuell ist dieses Projekt in den Gremien des Gemeinderats zur Beratung. Als Oberbürgermeisterin werde ich die Beschlüsse des Gemeinderats umsetzen."
+    - candidate: "Dejan Mihajlović"
+      position: 1
+      opinion: "Eine autofreie Innenstadt ist das Ziel, mit Beteiligung der Menschen, die dort leben und arbeiten."
+    - candidate: "Florian Braune"
+      position: -1
+      opinion: "Das würde den Verkehr auf den anderen Nord-Süd-Trassen erhöhen. Es wurde schon der Rotteckring unterbrochen."
+    - candidate: "Martin Borgmann"
+      position: 1
+      opinion: 'Um weiter auf "Freiwilligkeit" zu setzen, könnte die Citymaut helfen.'
+    - candidate: "Martin Horn"
+      position: -1
+      opinion: "Die Konzeption der Verwaltung ist sicherer und findet viel Zustimmung bei Verbänden und GR-Fraktionen."
+- short: "Dreisamradweg"
+  long: "Der Dreisamradweg soll überall mindestens vier Meter breit sein."
+  stances:
+    - candidate: "Monika Stein"
+      position: 1
+      opinion: "Überall wo das baulich möglich ist, muss der Dreisamradweg so schnell wie möglich ausgebaut werden da dieser jetzt schon stark überlastet ist."
+    - candidate: "Dejan Mihajlović"
+      position: 0
+      opinion: "Fachlich gut begründet, aber an mehreren Stellen baulich schwierig. Lebe in der Oberau."
+    - candidate: "Florian Braune"
+      position: 1
+      opinion: "Auf jeden Fall muss er breiter werden."
+    - candidate: "Martin Borgmann"
+      position: 1
+      opinion: "Meine Grundforderung von einer 30 km/h Mindestgeschwindigkeit braucht einen baulich getrennten, vierspurigen Radweg."
+    - candidate: "Martin Horn"
+      position: 1
+      opinion: "Wo immer dies räumlich und mit vertretbarem finanziellen Aufwand möglich ist, sollten Radwege möglichst breit sein."
+- short: "Lebenswerte Quartiere"
+  long: "Wohnviertel sollen konsequent vom Durchgangsverkehr befreit werden."
+  stances:
+    - candidate: "Monika Stein"
+      position: 1
+      opinion: "Weniger Durchgangsverkehr bedeutet gleichzeitig auch ruhigere Wohngegenden und sicherere Wege für Kinder."
+    - candidate: "Dejan Mihajlović"
+      position: 1
+      opinion: "Barcelona hat mit Superblocks gezeigt, wie es geht. Das würde ich in Freiburg vorantreiben mit echter Beteiligung der Menschen vor Ort."
+    - candidate: "Florian Braune"
+      position: 0
+      opinion: "Warum sollte ich nicht mit dem Mofa oder dem Fahrrad durch Wohnviertel fahren sollen?"
+    - candidate: "Martin Borgmann"
+      position: 1
+      opinion: "Wohngebiete sind zum Wohnen da. Kein Verkehrslärm, kein Feinstaub, mehr Sicherheit."
+    - candidate: "Martin Horn"
+      position: 1
+      opinion: "In Freiburg werden alle neuen Wohnquartiere konsequent so geplant."
+- short: "Ausbau der Rheintalbahn"
+  long: "Auf der bestehenden Güterbahnstrecke im Freiburger Westen soll im Rahmen des Ausbaus der Rheintalbahn eine S-Bahn-Linie entstehen."
+  stances:
+    - candidate: "Monika Stein"
+      position: 0
+      opinion: "Ich werde hierzu in die Abstimmung mit dem Land gehen, da das Bestellen von S-Bahnen Landessache ist. Hier möchte ich auf eine Verbesserung im Nahverkehr für Freiburg drängen, wo die Güterbahnstrecke eine wichtige Rolle einnehmen kann."
+    - candidate: "Dejan Mihajlović"
+      position: 0
+      opinion: "Meines Wissens nach liegt hier die Entscheidung bei Bund, DB und Land. Würde mich als OB aber dafür einsetzen."
+    - candidate: "Florian Braune"
+      position: 1
+      opinion: "Ist das nicht schon seit 30 Jahren geplant?"
+    - candidate: "Martin Borgmann"
+      position: 1
+      opinion: "Ja, aber bitte mit wöchentlich überarbeiteten Plänen und explodierenden Kosten. Freiburg 31 kann kommen!"
+    - candidate: "Martin Horn"
+      position: 1
+      opinion: "Eine Idee, die mich begeistert. Die Nutzung der Güterbahnstrecke für den S-Bahn-Verkehr ist bereits fester Bestandteil des Breisgau-S-Bahn-Konzeptes."
+- short: "Stadtbahn"
+  long: "St. Georgen soll eine Stadtbahn erhalten."
+  stances:
+    - candidate: "Monika Stein"
+      position: 1
+      opinion: "Unbedingt und schon möglichst bald. Leider wurde der Bahnausbau immer weiter nach hinten verschoben."
+    - candidate: "Dejan Mihajlović"
+      position: 1
+      opinion: "St. Georgen ist ein großer Stadtteil ohne Straßenbahnanschluss. Als OB würde ich die Planung vorantreiben und die Menschen vor Ort beteiligen."
+    - candidate: "Florian Braune"
+      position: 1
+      opinion: "Ja, mit einer intelligenten Trassenführung die auch alle Wohngebiete anschließt."
+    - candidate: "Martin Borgmann"
+      position: 1
+      opinion: "Zum Weinfest ist es mit dem Rad relativ weit und außerdem gilt die 1,6-Promille-Grenze. Oder was macht man in St. Georgen?"
+    - candidate: "Martin Horn"
+      position: 1
+      opinion: "Die ÖPNV-Anbindung von St. Georgen muss verbessert werden. Ob durch eine Stadtbahn oder mehr Busse muss geprüft und gemeinsam mit der Bürgerschaft entschieden werden."

@@ -1,6 +1,6 @@
 {{ define "main" }} {{ $qi := .Params.questionIndex }} {{ $questions :=
-hugo.Data.mobilomat.questions }} {{ $q := index $questions $qi }} {{ $total :=
-len $questions }} {{ $num := add $qi 1 }} {{ $isLast := eq $num $total }} {{
+hugo.Data.questions }} {{ $q := index $questions $qi }} {{ $total := len
+$questions }} {{ $num := add $qi 1 }} {{ $isLast := eq $num $total }} {{
 $prevURL := cond (eq $qi 0) "/" (printf "/fragen/%d/" $qi) }} {{ $nextURL :=
 cond $isLast "/ergebnisse/" (printf "/fragen/%d/" (add $qi 2)) }}
 

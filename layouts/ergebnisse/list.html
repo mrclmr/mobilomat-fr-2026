@@ -1,7 +1,6 @@
-{{ define "main" }} {{ $questions := hugo.Data.mobilomat.questions }} {{
-$candidates := hugo.Data.mobilomat.candidates }} {{ $icons := dict "1" "✓" "0"
-"○" "-1" "✗" }} {{ $colors := dict "1" "pct-green" "0" "pct-amber" "-1"
-"pct-red" }}
+{{ define "main" }} {{ $questions := hugo.Data.questions }} {{ $candidates :=
+(index $questions 0).stances }} {{ $icons := dict "1" "✓" "0" "○" "-1" "✗" }} {{
+$colors := dict "1" "pct-green" "0" "pct-amber" "-1" "pct-red" }}
 
 <div class="mx-auto flex min-h-screen max-w-lg flex-col p-4 sm:p-6">
   <div class="mb-5 overflow-hidden py-3">
@@ -48,7 +47,7 @@ $candidates := hugo.Data.mobilomat.candidates }} {{ $icons := dict "1" "✓" "0"
   <div id="tab-summary">
     <div id="summary-cards">
       {{ range $i, $c := $candidates }}
-      <div data-candidate="{{ $c.nameShort }}" class="card mb-3">
+      <div data-candidate="{{ $c.candidate }}" class="card mb-3">
         <div class="mb-3 flex items-center gap-4">
           <div
             class="rank-badge flex h-10 w-10 shrink-0 items-center justify-center rounded-full rank-other text-sm font-bold"
@@ -59,13 +58,8 @@ $candidates := hugo.Data.mobilomat.candidates }} {{ $icons := dict "1" "✓" "0"
             <div
               class="truncate font-semibold text-stone-900 dark:text-stone-50"
             >
-              {{ $c.nameShort }}
+              {{ $c.candidate }}
             </div>
-            {{ with $c.description }}
-            <div class="text-xs text-stone-400 dark:text-stone-500">
-              {{ . }}
-            </div>
-            {{ end }}
           </div>
           <div class="pct-label shrink-0 text-2xl font-bold">–</div>
         </div>
@@ -76,17 +70,6 @@ $candidates := hugo.Data.mobilomat.candidates }} {{ $icons := dict "1" "✓" "0"
             class="pct-bar h-full w-0 rounded-full transition-all duration-700"
           ></div>
         </div>
-        {{ with $c.url }}
-        <div class="mt-2 text-xs">
-          <a
-            href="{{ . }}"
-            target="_blank"
-            rel="noopener"
-            class="text-stone-400 hover:underline"
-            >Mehr erfahren →</a
-          >
-        </div>
-        {{ end }}
       </div>
       {{ end }}
     </div>
@@ -121,8 +104,9 @@ $candidates := hugo.Data.mobilomat.candidates }} {{ $icons := dict "1" "✓" "0"
         >
           {{ $q.long }}
         </p>
-        {{ range $q.stances }} {{ $icon := index $icons (printf "%d" .position)
-        }} {{ $col := index $colors (printf "%d" .position) }}
+        {{ range sort $q.stances ".candidate" }} {{ $icon := index $icons
+        (printf "%d" .position) }} {{ $col := index $colors (printf "%d"
+        .position) }}
         <div
           class="border-b border-stone-100 py-2 last:border-0 dark:border-stone-700"
         >
@@ -151,23 +135,20 @@ $candidates := hugo.Data.mobilomat.candidates }} {{ $icons := dict "1" "✓" "0"
   */}}
   <div id="tab-parties" class="hidden">
     <div id="parties-cards">
-      {{ range $c := $candidates }}
-      <details data-candidate="{{ $c.nameShort }}" class="card mb-3">
+      {{ range $c := (sort $candidates ".candidate") }}
+      <details data-candidate="{{ $c.candidate }}" class="card mb-3">
         <summary class="flex cursor-pointer list-none items-center gap-3">
           <div class="min-w-0 flex-grow">
             <div class="font-semibold text-stone-900 dark:text-stone-50">
-              {{ $c.nameShort }}
+              {{ $c.candidate }}
             </div>
-            {{ with $c.description }}
-            <div class="text-xs text-stone-400">{{ . }}</div>
-            {{ end }}
           </div>
           <div class="pct-label shrink-0 text-lg font-bold">–</div>
           <span class="ml-1 shrink-0 text-stone-400">›</span>
         </summary>
         <div class="mt-3 border-t border-stone-100 pt-3 dark:border-stone-700">
           {{ range $qi, $q := $questions }} {{ $stance := index (where
-          $q.stances "candidate" $c.nameShort) 0 }} {{ $icon := index $icons
+          $q.stances "candidate" $c.candidate) 0 }} {{ $icon := index $icons
           (printf "%d" $stance.position) }} {{ $col := index $colors (printf
           "%d" $stance.position) }}
           <div
@@ -354,7 +335,10 @@ $candidates := hugo.Data.mobilomat.candidates }} {{ $icons := dict "1" "✓" "0"
   function updateParties(results) {
     const container = document.getElementById("parties-cards");
     const answers = loadAnswers();
-    results.forEach((r) => {
+    const sorted = [...results].sort((a, b) =>
+      a.name.localeCompare(b.name, "de"),
+    );
+    sorted.forEach((r) => {
       const card = container.querySelector(`[data-candidate="${r.name}"]`);
       const pctLabel = card.querySelector(".pct-label");
       pctLabel.textContent = r.pct + "%";
