@@ -55,8 +55,8 @@
            dark:border-vcd-petrol/20 dark:bg-[#122e31] dark:text-stone-400;
   }
   .vote-btn-pro:has(:checked) {
-    @apply border-vcd-green bg-vcd-green/25 text-stone-800
-           dark:border-vcd-green/80 dark:bg-vcd-green/30 dark:text-stone-100;
+    @apply border-vcd-green bg-vcd-green/50 text-stone-800
+           dark:border-vcd-green/80 dark:bg-vcd-green/50 dark:text-stone-100;
   }
   .vote-btn-neutral {
     @apply border-stone-200 bg-white text-stone-500
@@ -64,8 +64,8 @@
            dark:border-vcd-petrol/20 dark:bg-[#122e31] dark:text-stone-400;
   }
   .vote-btn-neutral:has(:checked) {
-    @apply border-vcd-yellow bg-vcd-yellow/25 text-stone-800
-           dark:border-vcd-yellow/80 dark:bg-vcd-yellow/30 dark:text-stone-100;
+    @apply border-vcd-yellow bg-vcd-yellow/50 text-stone-800
+           dark:border-vcd-yellow/80 dark:bg-vcd-yellow/50 dark:text-stone-100;
   }
   .vote-btn-contra {
     @apply border-stone-200 bg-white text-stone-500
@@ -73,8 +73,8 @@
            dark:border-vcd-petrol/20 dark:bg-[#122e31] dark:text-stone-400;
   }
   .vote-btn-contra:has(:checked) {
-    @apply border-vcd-red bg-vcd-red/25 text-stone-800
-           dark:border-vcd-red/80 dark:bg-vcd-red/30 dark:text-stone-100;
+    @apply border-vcd-red bg-vcd-red/50 text-stone-800
+           dark:border-vcd-red/80 dark:bg-vcd-red/50 dark:text-stone-100;
   }
   .vote-btn-skip {
     @apply border-stone-200 bg-white text-stone-500
