@@ -159,7 +159,7 @@
            dark:border-vcd-petrol/20 dark:bg-[#122e31] dark:text-stone-400;
   }
   .vote-btn-skip::before {
-    background: rgb(120 113 108 / 0.25);
+    background: rgb(120 113 108 / 0.45);
   }
   .vote-btn-skip:has(:checked) {
     @apply border-stone-400 text-stone-700 dark:border-stone-500 dark:text-stone-200;

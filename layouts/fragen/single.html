@@ -4,7 +4,7 @@ $questions }} {{ $num := add $qi 1 }} {{ $isLast := eq $num $total }} {{
 $prevURL := cond (eq $qi 0) "/" (printf "/fragen/%d/" $qi) }} {{ $nextURL :=
 cond $isLast "/ergebnisse/" (printf "/fragen/%d/" (add $qi 2)) }}
 
-<div class="flex min-h-screen flex-col">
+<div class="flex flex-col">
   <div class="bg-vcd-green-tint px-4 pb-5 pt-4 dark:bg-vcd-green/10 sm:px-6">
     <div class="mx-auto max-w-lg">
       <div
@@ -23,8 +23,8 @@ cond $isLast "/ergebnisse/" (printf "/fragen/%d/" (add $qi 2)) }}
     </div>
   </div>
 
-  <div class="mx-auto flex w-full max-w-lg flex-1 flex-col p-4 sm:p-6">
-    <div class="card mb-5 flex-grow">
+  <div class="mx-auto w-full max-w-lg p-4 sm:p-6">
+    <div class="card mb-5">
       <h2 class="mb-3">{{ $q.short }}</h2>
       <p class="leading-relaxed text-stone-600 dark:text-stone-300">
         {{ $q.long }}

@@ -1,4 +1,4 @@
-{{- range $i, $q := hugo.Data.mobilomat.questions }}
+{{- range $i, $q := hugo.Data.questions }}
 {{- $page := dict
   "path" (printf "%d" (add $i 1))
   "title" $q.short
