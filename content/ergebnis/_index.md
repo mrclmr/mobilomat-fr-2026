@@ -1,0 +1,4 @@
+---
+title: "Ergebnis"
+layout: ergebnis
+---

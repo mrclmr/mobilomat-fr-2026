@@ -1,0 +1,7 @@
+{{- range $i, $q := hugo.Data.questions }}
+  {{- $.AddPage (dict
+    "path" (printf "%d" (add $i 1))
+    "title" $q.topic
+    "params" (dict "questionIndex" $i)
+  ) }}
+{{- end }}

@@ -1,0 +1,38 @@
+{{ $qi := .qi }} {{ $num := add $qi 1 }} {{ $q := .q }} {{ $stances := or
+.stances $q.stances }} {{ $icons := dict "1" "✓" "0" "○" "-1" "✗" }} {{ $badges
+:= dict "1" "vote-badge-pro" "0" "vote-badge-neutral" "-1" "vote-badge-contra"
+}}
+
+<div class="mb-1 text-lg font-semibold text-stone-800 dark:text-stone-200">
+  {{ $num }}. {{ $q.topic }}
+</div>
+<p
+  class="leading-relaxed text-stone-600 dark:text-stone-300 [&_a]:text-vcd-petrol-dark [&_a]:underline dark:[&_a]:text-vcd-petrol"
+>
+  {{ $q.question | safeHTML }}
+</p>
+<div class="mt-3 mb-1 flex items-center gap-2">
+  <span class="font-medium text-stone-800 dark:text-stone-200"
+    >Meine Antwort:</span
+  ><span data-my-ans-qi="{{ $qi }}" class="vote-badge"></span>
+</div>
+{{ range $stances }} {{ $icon := index $icons (printf "%d" .position) }} {{
+$badge := index $badges (printf "%d" .position) }}
+<div
+  class="mt-3 border-t border-stone-200 pt-3 dark:border-stone-700"
+  data-candidate="{{ .candidate }}"
+  data-pos="{{ .position }}"
+>
+  <div class="mb-2 flex items-center gap-2">
+    <span class="font-medium text-stone-800 dark:text-stone-200"
+      >{{ .candidate }}:</span
+    ><span class="vote-badge {{ $badge }} shrink-0">{{ $icon }}</span>
+  </div>
+  <p class="italic leading-relaxed text-stone-600 dark:text-stone-300">
+    <span class="font-black text-vcd-petrol">„</span>{{ .opinion }}<span
+      class="font-black text-vcd-petrol"
+      >“</span
+    >
+  </p>
+</div>
+{{ end }}

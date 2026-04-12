@@ -1,0 +1,59 @@
+name: Deploy to netcup with FTP
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      # hugo version
+      HUGO_VERSION: 0.160.1
+      TZ: Europe/Berlin
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0 # Fetch all history for .GitInfo and .Lastmod
+      - name: Install yamlfmt
+        run: go install github.com/google/yamlfmt/cmd/yamlfmt@latest
+      - uses: actions/setup-node@v6
+        with:
+          node-version-file: "package.json"
+      - name: Install Node.js dependencies
+        run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
+      - name: Lint
+        run: make lint
+      - name: Cache Hugo .deb
+        id: cache-hugo
+        uses: actions/cache@v5
+        with:
+          path: ${{ runner.temp }}/hugo.deb
+          key: hugo-${{ env.HUGO_VERSION }}
+      - name: Download Hugo CLI if not cached
+        if: steps.cache-hugo.outputs.cache-hit != 'true'
+        run: wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb
+      - name: Install Hugo CLI
+        run: sudo dpkg -i ${{ runner.temp }}/hugo.deb
+      - name: Configure Git
+        run: git config core.quotepath false
+      # Here a PR is needed to have 'head'. See comment at the beginning of file.
+      - name: Set base URL, Hugo environment
+        run: |
+          echo "BASE_URL=https://mobilomat-freiburg.de" >> "$GITHUB_ENV"
+          echo "HUGO_ENVIRONMENT=production" >> "$GITHUB_ENV"
+      - name: Build with Hugo
+        run: |-
+          hugo \
+            --gc \
+            --minify \
+            --baseURL "${{ env.BASE_URL }}/"
+      # https://community.netcup.com/en/tutorials/automating-deployment-with-github-actions
+      - name: Copy dir public/ with FTP to server
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.6
+        with:
+          server: ${{ secrets.FTP_SERVER_IP }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          # FTP user in netcup has path / (root) for "Basisverzeichnis"
+          server-dir: mobilomat-freiburg.de/httpdocs/
+          local-dir: ./public/

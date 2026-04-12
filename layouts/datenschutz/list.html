@@ -1,0 +1,14 @@
+{{ define "main" }}
+<div class="flex min-h-screen flex-col">
+  <div class="flex flex-1 justify-center p-4 pt-8 sm:p-6 sm:pt-10">
+    <div class="w-full max-w-lg sm:max-w-2xl">
+      <a
+        href="/"
+        class="mb-6 inline-flex items-center gap-1 text-sm text-stone-500 hover:underline dark:text-stone-400"
+        >← Zurück</a
+      >
+      <div class="card content-prose">{{ .Content }}</div>
+    </div>
+  </div>
+</div>
+{{ end }}

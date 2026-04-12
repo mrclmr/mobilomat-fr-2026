@@ -1,0 +1,167 @@
+{{ define "main" }} {{ $questions := hugo.Data.questions }} {{ $candidates :=
+(index $questions 0).stances }} {{ $icons := dict "1" "✓" "0" "○" "-1" "✗" }} {{
+$badges := dict "1" "vote-badge-pro" "0" "vote-badge-neutral" "-1"
+"vote-badge-contra" }}
+
+<div
+  class="mx-auto flex min-h-screen max-w-lg sm:max-w-2xl flex-col p-4 sm:p-6"
+>
+  <div class="mb-5 overflow-hidden py-3">
+    <div class="mb-2 flex justify-center">
+      <div
+        class="w-fit rotate-[-3deg] rounded-xl bg-vcd-green/80 px-4 py-1 sm:py-3 text-center backdrop-blur-sm dark:bg-vcd-green/70 outline outline-1 outline-transparent"
+      >
+        <h1 class="text-2xl font-black tracking-wide text-white sm:text-5xl">
+          Mein Ergebnis
+        </h1>
+      </div>
+    </div>
+    <div class="flex justify-center">
+      <div
+        class="rotate-[2deg] rounded-xl bg-vcd-petrol/80 px-3 py-1 sm:py-2 sm:px-4 text-center backdrop-blur-sm dark:bg-vcd-petrol/70 outline outline-1 outline-transparent"
+      >
+        <p class="text-xs font-medium text-white sm:text-lg">
+          Vergleich mit den Freiburger OB-Kandidierenden
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div id="summary-cards">
+    {{ range $i, $c := $candidates }} {{ $slug := $c.candidate | urlize }}
+    <a
+      data-candidate="{{ $c.candidate }}"
+      data-kandidat-link="{{ $slug }}"
+      class="card mb-3 block cursor-pointer transition-colors hover:bg-white active:bg-stone-100 dark:hover:bg-white/10 dark:active:bg-white/15"
+    >
+      <div class="mb-3 flex flex-wrap items-center justify-between gap-y-1">
+        <div class="flex items-center gap-3">
+          <div
+            class="rank-badge flex h-10 w-10 shrink-0 items-center justify-center rounded-full rank-other text-sm font-bold"
+          >
+            <span class="rank-num">{{ add $i 1 }}</span>
+          </div>
+          <div class="font-semibold text-stone-900 dark:text-stone-50">
+            {{ $c.candidate }}
+          </div>
+        </div>
+        <div class="pct-label shrink-0 text-2xl font-bold">–</div>
+      </div>
+      <div
+        class="h-2 overflow-hidden rounded-full bg-stone-100 dark:bg-stone-700"
+      >
+        <div
+          class="pct-bar h-full w-0 rounded-full transition-all duration-700"
+        ></div>
+      </div>
+      <div class="mt-3 flex items-center justify-center">
+        <span
+          class="flex items-center gap-1.5 text-sm text-vcd-petrol-dark dark:text-vcd-petrol"
+        >
+          <span>Antworten {{ $c.candidate }}</span>
+          <svg
+            class="h-3 w-3 shrink-0"
+            viewBox="0 0 257.2 450.1"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            {{ partial "icon" "icons/ionic-chevron-right.svg" }}
+          </svg>
+        </span>
+      </div>
+      {{ range $qi, $q := $questions }} {{ $stance := index (where $q.stances
+      "candidate" $c.candidate) 0 }}
+      <div
+        data-qi="{{ $qi }}"
+        data-pos="{{ $stance.position }}"
+        class="hidden"
+      ></div>
+      {{ end }}
+    </a>
+    {{ end }}
+  </div>
+
+  <div class="mt-2 space-y-3">
+    <button
+      id="share-btn"
+      class="btn-primary flex w-full items-center justify-center gap-2 sm:text-xl cursor-pointer"
+    >
+      <svg
+        class="h-5 w-5 sm:h-6 sm:w-6"
+        viewBox="0 0 384 320.1"
+        fill="currentColor"
+        aria-hidden="true"
+      >
+        {{ partial "icon" "icons/ionic-share.svg" }}
+      </svg>
+      Ergebnis teilen
+    </button>
+    <button
+      id="restart-btn"
+      class="flex w-full cursor-pointer items-center justify-center gap-2 sm:text-xl rounded-full border-2 border-vcd-petrol/40 bg-vcd-petrol-tint px-5 py-3.5 font-semibold text-vcd-petrol-dark transition-all hover:bg-vcd-petrol/20 active:scale-[0.98] dark:border-vcd-petrol/50 dark:bg-vcd-petrol/20 dark:text-vcd-petrol dark:hover:bg-vcd-petrol/30"
+    >
+      <svg
+        class="h-4 w-4 sm:h-5 sm:w-5"
+        viewBox="0 0 352 352"
+        fill="currentColor"
+        aria-hidden="true"
+      >
+        {{ partial "icon" "icons/ionic-android-refresh.svg" }}
+      </svg>
+      Neu starten
+    </button>
+  </div>
+
+  <div class="mt-8 mb-5">
+    <div class="mb-3 flex justify-center">
+      <div
+        class="rotate-[2deg] rounded-xl bg-vcd-petrol/80 px-3 py-1 sm:px-4 sm:py-2 text-center backdrop-blur-sm dark:bg-vcd-petrol/70 outline outline-1 outline-transparent"
+      >
+        <h2 class="text-xs font-medium text-white sm:text-lg">Alle Fragen</h2>
+      </div>
+    </div>
+    {{ range $qi, $q := $questions }}
+    <a
+      data-frage-link="{{ add $qi 1 }}"
+      class="card mb-3 block cursor-pointer transition-colors hover:bg-white active:bg-stone-100 dark:hover:bg-white/10 dark:active:bg-white/15"
+    >
+      <div
+        class="flex flex-col items-center gap-1 text-center md:grid md:grid-cols-3 md:items-center md:gap-2 md:text-left"
+      >
+        <span
+          class="text-sm font-medium text-stone-800 sm:text-base dark:text-stone-200"
+          ><span class="font-medium">{{ add $qi 1 }}.</span> {{ $q.topic
+          }}</span
+        >
+        <span
+          data-ans-qi="{{ $qi }}"
+          class="vote-badge text-xs md:justify-self-center"
+        ></span>
+        <div
+          class="mt-2 flex items-center justify-center gap-1.5 text-sm text-vcd-petrol-dark md:mt-0 md:justify-end dark:text-vcd-petrol"
+        >
+          <span>Antworten Kandidierenden</span>
+          <svg
+            class="h-3 w-3 shrink-0"
+            viewBox="0 0 257.2 450.1"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            {{ partial "icon" "icons/ionic-chevron-right.svg" }}
+          </svg>
+        </div>
+      </div>
+    </a>
+    {{ end }}
+  </div>
+
+  <div class="mt-2 space-y-3">
+    {{ partialCached "footer-links.html" . "footer-links" }} {{ partialCached
+    "disclaimer.html" . "disclaimer" }}
+  </div>
+</div>
+
+<script>
+  initErgebnisPage();
+</script>
+{{ end }}

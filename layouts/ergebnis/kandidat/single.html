@@ -1,0 +1,52 @@
+{{ define "main" }} {{ $candidate := .Params.candidate }} {{ $questions :=
+hugo.Data.questions }}
+
+<div class="mx-auto w-full max-w-lg sm:max-w-2xl p-4 sm:p-6">
+  <div class="mb-5 flex items-center gap-3">
+    <a
+      href="/ergebnis/"
+      class="flex items-center gap-1 text-sm text-vcd-petrol-dark dark:text-vcd-petrol hover:underline"
+    >
+      <svg
+        class="h-3 w-3 rotate-180"
+        viewBox="0 0 257.2 450.1"
+        fill="currentColor"
+        aria-hidden="true"
+      >
+        {{ partial "icon" "icons/ionic-chevron-right.svg" }}
+      </svg>
+      Ergebnis
+    </a>
+  </div>
+
+  <div class="card mb-5">
+    <h1 class="text-xl font-bold sm:text-2xl">{{ $candidate }}</h1>
+    <p class="mt-1 text-sm text-stone-500 dark:text-stone-400">
+      Positionen zu allen Fragen
+    </p>
+  </div>
+
+  <div class="space-y-3">
+    {{ range $qi, $q := $questions }} {{ $stance := index (where $q.stances
+    "candidate" $candidate) 0 }}
+    <div class="card">
+      {{ partial "question-with-stances.html" (dict "q" $q "qi" $qi "stances"
+      (slice $stance)) }}
+    </div>
+    {{ end }}
+  </div>
+
+  <div class="mt-6">
+    <a
+      href="/ergebnis/"
+      class="flex w-full cursor-pointer items-center justify-center gap-2 rounded-full border-2 border-vcd-petrol/40 bg-vcd-petrol-tint px-5 py-3.5 font-semibold text-vcd-petrol-dark transition-all hover:bg-vcd-petrol/20 active:scale-[0.98] dark:border-vcd-petrol/50 dark:bg-vcd-petrol/20 dark:text-vcd-petrol dark:hover:bg-vcd-petrol/30"
+    >
+      Zurück zum Ergebnis
+    </a>
+  </div>
+</div>
+
+<script>
+  initKandidatPage();
+</script>
+{{ end }}

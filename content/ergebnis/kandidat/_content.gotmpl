@@ -1,0 +1,7 @@
+{{- range $c := (index hugo.Data.questions 0).stances }}
+  {{- $.AddPage (dict
+    "path" ($c.candidate | urlize)
+    "title" $c.candidate
+    "params" (dict "candidate" $c.candidate)
+  ) }}
+{{- end }}

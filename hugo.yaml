@@ -1,0 +1,16 @@
+title: "Mobil-O-Mat OB-Wahl Freiburg"
+locale: "de-DE"
+defaultContentLanguage: de
+disableKinds: ["taxonomy", "term", "rss"]
+# https://github.com/bep/hugo-testing-tailwindcss-v4/tree/main
+build:
+  cachebusters:
+    - source: layouts/.*
+      target: css
+markup:
+  highlight:
+    noClasses: false
+enableRobotsTXT: false
+params:
+  imprintURL: "https://bw.vcd.org/der-vcd-in-bw/suedbaden/impressum"
+removePathAccents: true

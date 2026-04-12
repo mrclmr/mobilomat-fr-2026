@@ -1,0 +1,59 @@
+{{ define "main" }} {{ $qi := .Params.questionIndex }} {{ $questions :=
+hugo.Data.questions }} {{ $q := index $questions $qi }} {{ $total := len
+$questions }} {{ $num := add $qi 1 }} {{ $isLast := eq $num $total }} {{
+$prevURL := cond (eq $qi 0) "/" (printf "/fragen/%d/" $qi) }} {{ $nextURL :=
+cond $isLast "/ergebnis/" (printf "/fragen/%d/" (add $qi 2)) }}
+
+<div class="flex flex-col">
+  <div class="bg-vcd-green-tint px-4 pb-5 pt-4 dark:bg-vcd-green/10 sm:px-6">
+    <div class="mx-auto max-w-lg sm:max-w-2xl">
+      <div class="flex items-center gap-0.5">
+        {{ range $i, $q := $questions }}
+        <a
+          href="/fragen/{{ add $i 1 }}/"
+          class="progress-seg flex items-center justify-center rounded-sm {{ if eq $i $qi }}flex-[2] h-9 bg-vcd-petrol{{ else }}flex-1 h-7 bg-stone-300 dark:bg-stone-700{{ end }}"
+          data-qi="{{ $i }}"
+          ><span
+            class="text-[11px] font-black leading-none text-white drop-shadow-[0_0_2px_rgba(0,0,0,0.3)] sm:text-sm"
+            >{{ add $i 1 }}</span
+          ></a
+        >
+        {{ end }}
+      </div>
+    </div>
+  </div>
+
+  <div class="mx-auto w-full max-w-lg sm:max-w-2xl p-4 sm:p-6">
+    <div class="card mb-5">
+      <h2 class="mb-3">{{ $num }}. {{ $q.topic }}</h2>
+      <p
+        class="leading-relaxed text-stone-600 dark:text-stone-300 [&_a]:text-vcd-petrol-dark [&_a]:underline dark:[&_a]:text-vcd-petrol"
+      >
+        {{ $q.question | safeHTML }}
+      </p>
+    </div>
+
+    <div class="mb-5 space-y-2.5">
+      <a data-vote="1" class="vote-btn vote-btn-pro">
+        <span class="w-7 shrink-0 text-xl">✓</span><span>Stimme zu</span>
+      </a>
+      <a data-vote="0" class="vote-btn vote-btn-neutral">
+        <span class="w-7 shrink-0 text-xl">○</span
+        ><span>Egal&nbsp;/ Weiß nicht</span>
+      </a>
+      <a data-vote="-1" class="vote-btn vote-btn-contra">
+        <span class="w-7 shrink-0 text-xl">✗</span><span>Stimme nicht zu</span>
+      </a>
+      <a data-skip class="vote-btn vote-btn-skip">
+        <span class="w-7 shrink-0 text-lg">→</span><span>Überspringen</span>
+      </a>
+    </div>
+
+    {{ partialCached "footer-links.html" . "footer-links" }}
+  </div>
+</div>
+
+<script>
+  initFragenPage({{ $qi }}, "{{ $nextURL }}");
+</script>
+{{ end }}

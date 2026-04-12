@@ -1,0 +1,79 @@
+{{ define "main" }} {{ $questions := hugo.Data.questions }} {{ $total := len
+$questions }} {{ $stances := (index $questions 0).stances }} {{ $names := slice
+}} {{ range $stances }} {{ $names = $names | append .candidate }} {{ end }}
+<div class="flex min-h-screen flex-col items-center sm:justify-center sm:p-8">
+  <div
+    class="w-full max-w-lg sm:max-w-2xl sm:bg-stone-100 sm:overflow-hidden sm:rounded-3xl sm:border sm:border-stone-200 sm:shadow-sm dark:bg-[#122e31] dark:sm:border-stone-700"
+  >
+    <div
+      class="flex flex-col justify-start overflow-hidden px-4 pt-4 pb-4 sm:justify-center sm:px-16 sm:py-6"
+      style="
+        background-image: url(&quot;/vcd_background.jpg&quot;);
+        background-size: cover;
+        background-position: center;
+        aspect-ratio: 1318/840;
+      "
+    >
+      <div
+        class="w-fit self-center rotate-[-3deg] rounded-2xl bg-vcd-green/70 px-3 py-1.5 sm:px-12 sm:py-4 text-center backdrop-blur-sm outline outline-1 outline-transparent"
+      >
+        <h1
+          class="flex flex-col items-center gap-0 text-4xl font-black tracking-tight text-white sm:text-6xl whitespace-nowrap"
+        >
+          <span class="tracking-wide">Mobil-O-Mat</span>
+          <span class="text-sm font-bold leading-none tracking-wide sm:text-2xl"
+            >OB-Wahl Freiburg</span
+          >
+        </h1>
+      </div>
+      <div class="mt-2 sm:mt-10 w-[55%] self-start">
+        <div
+          class="w-full rotate-[2deg] rounded-2xl bg-vcd-petrol/70 px-2 py-1.5 sm:px-5 sm:py-4 text-center backdrop-blur-sm outline outline-1 outline-transparent"
+        >
+          <p class="text-sm font-medium leading-snug text-white sm:text-lg">
+            Teste schnell und einfach, welche OB-Kandidierenden deine Positionen
+            teilen!
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="h-1.5 bg-vcd-green"></div>
+    <div class="p-4 pt-8 sm:p-6 sm:pt-8">
+      <div class="card mb-4 bg-white dark:bg-vcd-petrol/10">
+        <p class="leading-relaxed text-stone-600 dark:text-stone-300">
+          Beantworte {{ $total }} Fragen zu Mobilitätsthemen und vergleiche
+          Deine Antworten mit
+          <span class="font-semibold tracking-wide"
+            >{{ range $i, $name := $names }}{{ if gt $i 0 }}{{ if eq $i (sub
+            (len $names) 1) }} und {{ else }}, {{ end }}{{ end }}<span
+              class="whitespace-nowrap"
+              >{{ $name }}</span
+            >{{ end }}</span
+          >.
+        </p>
+      </div>
+      <button
+        onclick="startQuiz()"
+        class="btn-primary flex w-full items-center justify-center gap-2 sm:text-xl cursor-pointer"
+      >
+        Los geht's
+        <svg
+          class="h-4 w-4 sm:h-5 sm:w-5"
+          viewBox="0 0 352 280.20001220703125"
+          fill="currentColor"
+          aria-hidden="true"
+        >
+          {{ partial "icon" "icons/ionic-arrow-right-c.svg" }}
+        </svg>
+      </button>
+      {{ partialCached "disclaimer.html" . "disclaimer" }} {{ partialCached
+      "footer-links.html" . "footer-links" }}
+    </div>
+  </div>
+</div>
+<script>
+  function startQuiz() {
+    window.location.href = "/fragen/1/";
+  }
+</script>
+{{ end }}
