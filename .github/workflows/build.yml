@@ -8,16 +8,16 @@ jobs:
     runs-on: ubuntu-latest
     env:
       # hugo version
-      HUGO_VERSION: 0.161.1
+      HUGO_VERSION: 0.164.0
       TZ: Europe/Berlin
       BASE_URL: https://mobilomat-freiburg.de
       SERVER_DIR: mobilomat-freiburg.de/httpdocs/
       HUGO_ENVIRONMENT: production
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0 # Fetch all history for .GitInfo and .Lastmod
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@v7
         with:
           node-version-file: "package.json"
       - name: Install Node.js dependencies
@@ -26,7 +26,7 @@ jobs:
         run: make lint
       - name: Cache Hugo .deb
         id: cache-hugo
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: ${{ runner.temp }}/hugo.deb
           key: hugo-${{ env.HUGO_VERSION }}
